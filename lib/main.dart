@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'app/constants/resources/app_colors.dart';
 import 'app/features/home/home_screen.dart';
 
 void main() {
@@ -15,11 +16,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // colorScheme: const ColorScheme.dark(),
-        // floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        // backgroundColor: Colors.red,
-        // ),
-
+         colorScheme:  const ColorScheme.dark().copyWith(
+           background: AppColors.primaryColor,
+           secondary: AppColors.secondaryButtonColor,
+         ),
+         floatingActionButtonTheme: const FloatingActionButtonThemeData().copyWith(
+           backgroundColor: AppColors.primaryButtonColor,
+           foregroundColor: Colors.white
+         ),
+         appBarTheme: const AppBarTheme().copyWith(color: AppColors.primaryColor),
         useMaterial3: true,
       ),
       home: const HomeScreen(title: 'Flutter Demo Home Page'),
