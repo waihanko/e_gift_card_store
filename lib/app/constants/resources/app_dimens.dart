@@ -21,6 +21,4 @@ abstract class AppDimens {
   static const textHeading2X = 28.0;
   static const textHeading3X = 32.0;
 
-  ///Specific Dimension
-  static const appBarHeight = 64.0;
 }

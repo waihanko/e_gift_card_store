@@ -1,16 +1,24 @@
 import 'package:e_gift_card_store/app/constants/resources/app_colors.dart';
+import 'package:e_gift_card_store/app/features/home/widgets/news_and_promotions_section_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../constants/resources/app_dimens.dart';
+import '../../widgets/game_card_item_widget.dart';
+import '../../widgets/game_top_up_item_widget.dart';
+import 'widgets/home_menu_section_view.dart';
+import 'widgets/new_game_card_section_view.dart';
+import 'widgets/new_game_topup_section_view.dart';
+import '../../widgets/news_and_promotion_item_widget.dart';
+import '../../widgets/platform_item_widget.dart';
+import 'widgets/platorm_item_section_view.dart';
 import '../../widgets/rounded_icon_widget.dart';
+import '../../widgets/special_deal_section_view.dart';
+import '../../widgets/text_view_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title});
-
-  final String title;
-
+  const HomeScreen({super.key});
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -18,7 +26,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.sizeOf(context).height * 0.45;
+    double screenHeight = MediaQuery.sizeOf(context).height * 0.5;
     return Scaffold(
         body: CustomScrollView(
       // physics: const BouncingScrollPhysics(),
@@ -50,11 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                       margin: const EdgeInsets.symmetric(
                           horizontal: AppDimens.marginCardMedium2),
-                      height: 54,
+                      height: 48,
                       decoration: BoxDecoration(
                           color: AppColors.secondaryTextColor,
-                          borderRadius: BorderRadius.circular(
-                              AppDimens.marginCardMedium2)),
+                          borderRadius:
+                              BorderRadius.circular(AppDimens.marginXLarge)),
                     ),
                   )
                 ],
@@ -65,14 +73,29 @@ class _HomeScreenState extends State<HomeScreen> {
         SliverList(
           delegate: SliverChildListDelegate([
             HomeMenuSectionView(),
-            SizedBox(height: AppDimens.marginLarge,),
+            SizedBox(
+              height: AppDimens.marginLarge,
+            ),
+            SpecialDealSectionView(),
+            SizedBox(
+              height: AppDimens.marginXXLarge,
+            ),
             NewGameCardSectionView(),
-            SizedBox(height: AppDimens.marginXLarge,),
+            SizedBox(
+              height: AppDimens.marginXXLarge,
+            ),
             NewGameTopUpSectionView(),
-            SizedBox(height: AppDimens.marginXLarge,),
+            SizedBox(
+              height: AppDimens.marginXXLarge,
+            ),
             NewsAndPromotionsSectionView(),
-            SizedBox(height: AppDimens.marginLarge,),
+            SizedBox(
+              height: AppDimens.marginXXLarge,
+            ),
             PlatformItemSectionView(),
+            SizedBox(
+              height: 140,
+            )
           ]),
         )
       ],
@@ -81,242 +104,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class HomeMenuSectionView extends StatelessWidget {
-  const HomeMenuSectionView({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: AppDimens.marginXLarge,
-          vertical: AppDimens.marginCardMedium2),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              MenuItemWidget(),
-              MenuItemWidget(),
-              MenuItemWidget(),
-              MenuItemWidget(),
-            ],
-          ),
-          SizedBox(
-            height: AppDimens.marginLarge,
-          ),
-          Row(
-            children: [
-              MenuItemWidget(),
-              MenuItemWidget(),
-              MenuItemWidget(),
-              MenuItemWidget(),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
 
-class MenuItemWidget extends StatelessWidget {
-  const MenuItemWidget({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-        color: Colors.green,
-        child: Column(
-          children: [
-            RoundedIconWidget(
-              icon: Icon(
-                Icons.ac_unit_outlined,
-                size: 28,
-              ),
-            ),
-            SizedBox(
-              height: AppDimens.marginMedium,
-            ),
-            Text("Game Card"),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
-class NewGameCardSectionView extends StatelessWidget {
-  const NewGameCardSectionView({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppDimens.marginXLarge),
-          child: Text("New Game Card"),
-        ),
-        const SizedBox(height: AppDimens.marginCardMedium,),
-        SizedBox(
-          height: 220,
-          child: ListView.builder(
-            itemCount: 5,
-            padding: EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium2),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(left: AppDimens.marginCardMedium),
-              child: SizedBox(
-                width: 114,
-                child: Column(
-                  children: [
-                    Container(
-                      width: 114,
-                      height: 140,
-                      color: Colors.red,
-                    ),
-                    SizedBox(height: AppDimens.marginMedium,),
-                    Text("Undrawn RX Reedem Undrawn RX Reedem", maxLines: 3,)
-                  ],
-                ),
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
 
-class NewGameTopUpSectionView extends StatelessWidget {
-  const NewGameTopUpSectionView({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppDimens.marginXLarge),
-          child: Text("New Game TopUp"),
-        ),
-        const SizedBox(height: AppDimens.marginCardMedium,),
-        SizedBox(
-          height: 180,
-          child: ListView.builder(
-            itemCount: 5,
-            padding: EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium2),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(left: AppDimens.marginCardMedium),
-              child: SizedBox(
-                width: 114,
-                child: Column(
-                  children: [
-                    Container(
-                      width: 114,
-                      height: 114,
-                      color: Colors.yellow,
-                    ),
-                    SizedBox(height: AppDimens.marginMedium,),
-                    Text("Undrawn RX Reedem Undrawn RX Reedem", maxLines: 2,)
-                  ],
-                ),
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
 
-class NewsAndPromotionsSectionView extends StatelessWidget {
-  const NewsAndPromotionsSectionView({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppDimens.marginXLarge),
-          child: Text("News & Promotions"),
-        ),
-        const SizedBox(height: AppDimens.marginCardMedium,),
-        SizedBox(
-          height: 200,
-          child: ListView.builder(
-            itemCount: 5,
-            padding: EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium2),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(left: AppDimens.marginCardMedium),
-              child: SizedBox(
-                width: 240,
-                child: Column(
-                  children: [
-                    Container(
-                      width: 240,
-                      height: 114,
-                      color: Colors.green,
-                    ),
-                    SizedBox(height: AppDimens.marginMedium,),
-                    Text("Undrawn RX Reedem Undrawn RX Reedem", maxLines: 2,),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
 
-class PlatformItemSectionView extends StatelessWidget {
-  const PlatformItemSectionView({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppDimens.marginXLarge),
-          child: Text("Platform Items"),
-        ),
-        const SizedBox(height: AppDimens.marginCardMedium,),
-        SizedBox(
-          height: 280,
-          child: ListView.builder(
-            itemCount: 5,
-            padding: EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium2),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(left: AppDimens.marginCardMedium),
-              child: SizedBox(
-                width: 240,
-                child: Column(
-                  children: [
-                    Container(
-                      width: 240,
-                      height: 114,
-                      color: Colors.green,
-                    ),
-                    SizedBox(height: AppDimens.marginMedium,),
-                    Text("Undrawn RX Reedem Undrawn RX Reedem", maxLines: 2,),
-                    SizedBox(height: AppDimens.marginSmall,),
-                    Text("Undrawn RX Reedem Undrawn RX Reedem", maxLines: 2,)
-                  ],
-                ),
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
