@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../constants/resources/app_dimens.dart';
 import '../../../widgets/rounded_icon_widget.dart';
@@ -7,13 +8,13 @@ import '../../../widgets/text_view_widget.dart';
 class MenuItemWidget extends StatelessWidget {
   final String text;
   final Color backgroundColor;
-  final IconData menuIcon;
+  final String iconName;
 
   const MenuItemWidget({
     super.key,
     required this.text,
     required this.backgroundColor,
-    required this.menuIcon,
+    required this.iconName,
   });
 
   @override
@@ -21,15 +22,19 @@ class MenuItemWidget extends StatelessWidget {
     return Expanded(
       flex: 1,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginMedium),
+        padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginExtraSmall),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RoundedIconWidget(
-              backgroundColor: backgroundColor,
-              icon: Icon(
-                menuIcon,
-                size: 28,
+            SizedBox(
+              width: 54,
+              height: 54,
+              child: RoundedIconWidget(
+                backgroundColor: backgroundColor,
+                icon: SvgPicture.asset(
+                  iconName,
+                  height: 22,
+                ),
               ),
             ),
             SizedBox(

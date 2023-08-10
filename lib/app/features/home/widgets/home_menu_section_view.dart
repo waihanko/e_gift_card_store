@@ -1,3 +1,5 @@
+import 'package:e_gift_card_store/app/constants/resources/app_images.dart';
+import 'package:e_gift_card_store/app/constants/resources/app_strings.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/resources/app_colors.dart';
@@ -21,52 +23,52 @@ class HomeMenuSectionView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MenuItemWidget(
-                backgroundColor: AppColors.secondaryColor,
-                text: "Game Card" * 3,
-                menuIcon: Icons.add_card,
+                backgroundColor: AppColors.dimBlueBgColor,
+                text: "Game Cards",
+                iconName: AppImages.gameCardsIcon,
               ),
               MenuItemWidget(
-                backgroundColor: AppColors.secondaryColor,
-                text: "Game Card",
-                menuIcon: Icons.add_card,
+                backgroundColor: AppColors.dimRedBgColor,
+                text: "Gift Card",
+                iconName: AppImages.giftCardsIcon,
               ),
               MenuItemWidget(
-                backgroundColor: AppColors.secondaryColor,
-                text: "Game Card",
-                menuIcon: Icons.add_card,
+                backgroundColor: AppColors.dimGreenBgColor,
+                text: "CD-Keys",
+                iconName: AppImages.cdKeyIcon,
               ),
               MenuItemWidget(
-                backgroundColor: AppColors.secondaryColor,
-                text: "Game Card",
-                menuIcon: Icons.add_card,
+                backgroundColor: AppColors.dimBlueBgColor,
+                text: "Game Console",
+                iconName: AppImages.gameConsoleIcon,
               ),
             ],
           ),
           SizedBox(
-            height: AppDimens.marginLarge,
+            height: AppDimens.marginCardMedium2,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MenuItemWidget(
-                backgroundColor: AppColors.secondaryColor,
-                text: "Game Card" * 3,
-                menuIcon: Icons.add_card,
+                backgroundColor: AppColors.dimYellowBgColor,
+                text: "Shopping",
+                iconName: AppImages.shoppingIcon,
               ),
               MenuItemWidget(
-                backgroundColor: AppColors.secondaryColor,
-                text: "Game Card",
-                menuIcon: Icons.add_card,
+                backgroundColor: AppColors.dimPurpleBgColor,
+                text: "Music",
+                iconName: AppImages.musicIcon,
               ),
               MenuItemWidget(
-                backgroundColor: AppColors.secondaryColor,
-                text: "Game Card",
-                menuIcon: Icons.add_card,
+                backgroundColor: AppColors.dimRedBgColor,
+                text: "Direct Top-Up",
+                iconName: AppImages.directTopUpIcon,
               ),
               MenuItemWidget(
-                backgroundColor: AppColors.secondaryColor,
-                text: "Game Card",
-                menuIcon: Icons.add_card,
+                backgroundColor: AppColors.dimBlueBgColor,
+                text: "Mobile Recharge",
+                iconName: AppImages.mobileRechargeIcon,
               ),
             ],
           ),
