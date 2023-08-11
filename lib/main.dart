@@ -18,15 +18,23 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-         colorScheme:  const ColorScheme.dark().copyWith(
-           background: AppColors.primaryColor,
-           secondary: AppColors.primaryButtonColor,
-         ),
-         floatingActionButtonTheme: const FloatingActionButtonThemeData().copyWith(
-           backgroundColor: AppColors.primaryButtonColor,
-           foregroundColor: Colors.white
-         ),
-         appBarTheme: const AppBarTheme().copyWith(color: AppColors.primaryColor),
+        colorScheme: const ColorScheme.dark().copyWith(
+          background: AppColors.primaryColor,
+          secondary: AppColors.primaryButtonColor,
+        ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData()
+            .copyWith(
+                backgroundColor: AppColors.primaryButtonColor,
+                foregroundColor: Colors.white),
+        iconTheme: IconThemeData().copyWith(
+          color: AppColors.iconColor,
+        ),
+        appBarTheme: const AppBarTheme().copyWith(
+          color: AppColors.primaryColor,
+          iconTheme: IconThemeData().copyWith(
+            color: AppColors.iconColor,
+          )
+        ),
         useMaterial3: true,
       ),
       home: const MainHomeScreen(),

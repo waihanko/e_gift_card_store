@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           horizontal: AppDimens.marginCardMedium2),
                       height: 48,
                       decoration: BoxDecoration(
-                          color: AppColors.secondaryTextColor,
+                          color: AppColors.placeHolderColor,
                           borderRadius:
                               BorderRadius.circular(AppDimens.marginXLarge)),
                     ),

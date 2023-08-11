@@ -9,12 +9,14 @@ class MenuItemWidget extends StatelessWidget {
   final String text;
   final Color backgroundColor;
   final String iconName;
+  final Function? onTapMenu;
 
   const MenuItemWidget({
     super.key,
     required this.text,
     required this.backgroundColor,
     required this.iconName,
+    this.onTapMenu,
   });
 
   @override
@@ -22,7 +24,8 @@ class MenuItemWidget extends StatelessWidget {
     return Expanded(
       flex: 1,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginExtraSmall),
+        padding:
+            const EdgeInsets.symmetric(horizontal: AppDimens.marginExtraSmall),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -35,6 +38,7 @@ class MenuItemWidget extends StatelessWidget {
                   iconName,
                   height: 22,
                 ),
+                onClickIcon: () => onTapMenu?.call(),
               ),
             ),
             SizedBox(

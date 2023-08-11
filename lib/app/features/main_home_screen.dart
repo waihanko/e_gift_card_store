@@ -33,12 +33,15 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     return Scaffold(
       extendBody: true,
         bottomNavigationBar: SnakeNavigationBar.color(
+          elevation: 2,
           behaviour: SnakeBarBehaviour.floating,
       padding: const EdgeInsets.all(AppDimens.marginCardMedium),
       snakeViewColor: AppColors.secondaryButtonColor,
-      selectedItemColor: AppColors.selectedIconColor,
+      selectedItemColor: AppColors.primaryColor,
+      unselectedItemColor: AppColors.iconColor,
       currentIndex: currentSelectedIndex,
       height: 58,
+      backgroundColor: AppColors.primaryColor,
       snakeShape: SnakeShape.circle,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(100)),
