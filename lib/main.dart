@@ -35,6 +35,10 @@ class MyApp extends StatelessWidget {
             color: AppColors.iconColor,
           )
         ),
+        dialogTheme: DialogTheme().copyWith(
+          iconColor: AppColors.primaryColor,
+          contentTextStyle: TextStyle().copyWith(color: AppColors.primaryColor)
+        ),
         useMaterial3: true,
       ),
       home: const MainHomeScreen(),

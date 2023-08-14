@@ -6,16 +6,16 @@ import '../../constants/resources/app_dimens.dart';
 import '../../widgets/categories_dialog.dart';
 import '../../widgets/choose_sticky_categories_widget.dart';
 import '../../widgets/primary_app_bar_widget.dart';
-class GiftCardItemListScreen extends StatefulWidget {
+class GiftTopUpItemListScreen extends StatefulWidget {
   final String title;
 
-  const GiftCardItemListScreen({this.title = "", super.key});
+  const GiftTopUpItemListScreen({this.title = "", super.key});
 
   @override
-  State<GiftCardItemListScreen> createState() => _GiftCardItemListScreenState();
+  State<GiftTopUpItemListScreen> createState() => _GiftTopUpItemListScreenState();
 }
 
-class _GiftCardItemListScreenState extends State<GiftCardItemListScreen> {
+class _GiftTopUpItemListScreenState extends State<GiftTopUpItemListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +52,7 @@ Future<void> dialogBuilder(BuildContext context, String title,) {
   return showDialog<void>(
     context: context,
     builder: (BuildContext context) {
-      return CategoriesDialog(title: title, categoryList: giftCardCategoDummy,);
+      return CategoriesDialog(title: title, categoryList: gameTopUpCategoDummy);
     },
   );
 }

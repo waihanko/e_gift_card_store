@@ -8,10 +8,12 @@ import '../constants/resources/app_dimens.dart';
 class ChooseStickyCategoriesWidget extends StatelessWidget {
   const ChooseStickyCategoriesWidget({
     super.key,
+    required this.onClick,
     required this.title,
   });
 
   final String title;
+  final Function onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class ChooseStickyCategoriesWidget extends StatelessWidget {
             child: Align(
               child: Material(
                 child: InkWell(
-                  onTap: () => {},
+                  onTap: () => onClick(),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: AppDimens.marginMedium2,

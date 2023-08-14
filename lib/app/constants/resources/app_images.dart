@@ -11,5 +11,17 @@ abstract class AppImages {
   static const musicIcon = "assets/icons/music_icon.svg";
   static const directTopUpIcon = "assets/icons/direct_top_up_icon.svg";
   static const mobileRechargeIcon = "assets/icons/mobile_recharge_icon.svg";
+  static const mobileGameCardIcon = "assets/icons/mobile_game_card_icon.svg";
+  static const mobileTopUpIcon = "assets/icons/mobile_game_topup_icon.svg";
+  static const paymentCardIcon = "assets/icons/payment_card_icon.svg";
+  static const videoStreamingIcon = "assets/icons/video_streamming_icon.svg";
+  static const toolsIcon = "assets/icons/tools_icon.svg";
+  static const softwareIcon = "assets/icons/software_icon.svg";
+  static const socialIcon = "assets/icons/social_app_icon.svg";
+  static const freebiesCodeIcon = "assets/icons/freebie_codes_icon.svg";
+  static const subscriptionIcon = "assets/icons/subscription_icon.svg";
+  static const chinaDirectTopUpIcon = "assets/icons/china_direct_top_up_icon.svg";
+  static const entertainmentIcon = "assets/icons/entertainment_icon.svg";
+  static const liveStreamingIcon = "assets/icons/live_streaming_icon.svg";
 
 }

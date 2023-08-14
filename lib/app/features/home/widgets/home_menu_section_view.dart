@@ -1,4 +1,5 @@
 import 'package:e_gift_card_store/app/constants/resources/app_images.dart';
+import 'package:e_gift_card_store/app/features/gift_topup_item_list/gift_top_up_list_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/resources/app_colors.dart';
@@ -69,13 +70,13 @@ class HomeMenuSectionView extends StatelessWidget {
                 backgroundColor: AppColors.dimRedBgColor,
                 text: "Direct Top-Up",
                 iconName: AppImages.directTopUpIcon,
-                onTapMenu:()=>  goToGiftCardItemListScreen("Direct Top-Up", context),
+                onTapMenu:()=>  goToGiftTopUpItemListScreen("Direct Top-Up", context),
               ),
               MenuItemWidget(
                 backgroundColor: AppColors.dimBlueBgColor,
                 text: "Mobile Recharge",
                 iconName: AppImages.mobileRechargeIcon,
-                onTapMenu:()=>  goToGiftCardItemListScreen("Mobile Recharge", context),
+                onTapMenu:()=>  goToGiftTopUpItemListScreen("Mobile Recharge", context),
               ),
             ],
           ),
@@ -88,6 +89,13 @@ class HomeMenuSectionView extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => GiftCardItemListScreen(title: title)),
+    );
+  }
+
+  goToGiftTopUpItemListScreen(String title, BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => GiftTopUpItemListScreen(title: title)),
     );
   }
 
