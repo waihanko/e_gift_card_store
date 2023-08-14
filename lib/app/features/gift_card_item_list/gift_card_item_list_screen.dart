@@ -1,8 +1,11 @@
+import 'package:e_gift_card_store/app/constants/resources/app_colors.dart';
 import 'package:e_gift_card_store/app/widgets/game_card_item_widget.dart';
-import 'package:e_gift_card_store/app/widgets/tab_screen_app_bar_widget.dart';
+import 'package:e_gift_card_store/app/widgets/rounded_icon_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../../constants/resources/app_dimens.dart';
+import '../../widgets/sticky_header_catego_delegate.dart';
 import '../../widgets/text_view_widget.dart';
 
 class GiftCardItemListScreen extends StatefulWidget {
@@ -32,16 +35,41 @@ class _GiftCardItemListScreenState extends State<GiftCardItemListScreen> {
       ),
       body: CustomScrollView(
         slivers: [
+          SliverPersistentHeader(delegate: StickyHeaderCategoDelegate(
+            height: 24,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: AppDimens.marginMedium2),
+              color: Theme.of(context).canvasColor,
+              child: Material(
+                type: MaterialType.transparency,
+                child: InkWell(
+                  onTap: ()=> print("Hello"),
+                  enableFeedback: true,
+                  splashColor: AppColors.secondaryColor,
+                  child: const Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(Icons.list_rounded),
+                      SizedBox(width: AppDimens.marginCardMedium,),
+                      TextViewWidget("Hello", lineHeight: 0,fontWeight: FontWeight.w500,)
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ),
+          pinned: true,
+          ),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium2),
+            padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium2, vertical: AppDimens.marginCardMedium2),
             sliver: SliverGrid(
               delegate: SliverChildBuilderDelegate(
                     (context, index) {
-                  return GameCardItemWidget();
+                  return const GameCardItemWidget();
                 },
                 childCount: 10,
-              ),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              ), 
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 mainAxisSpacing: AppDimens.marginSmall,
                 crossAxisSpacing: AppDimens.marginMedium,
@@ -54,3 +82,4 @@ class _GiftCardItemListScreenState extends State<GiftCardItemListScreen> {
     );
   }
 }
+

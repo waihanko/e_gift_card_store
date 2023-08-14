@@ -113,13 +113,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           vertical: AppDimens.marginSmall),
                       child: Row(
                         children: [
-                          Icon(Icons.list_alt_rounded),
+                          Icon(Icons.list_alt_rounded, size: 18 ,),
                           SizedBox(
                             width: AppDimens.marginCardMedium,
                           ),
                           TextViewWidget(
                             "My Orders",
                             fontWeight: FontWeight.w600,
+                            textSize: AppDimens.textMedium,
                           ),
                           Spacer(),
                           Icon(Icons.navigate_next_rounded)
@@ -252,13 +253,14 @@ class ProfileMenuListItem extends StatelessWidget {
           vertical: AppDimens.marginCardMedium2),
       child: Row(
         children: [
-          Icon(iconName),
+          Icon(iconName, size: 18,),
           SizedBox(
             width: AppDimens.marginCardMedium,
           ),
           TextViewWidget(
             menuName,
             fontWeight: FontWeight.w600,
+            textSize: AppDimens.textMedium,
           ),
           Spacer(),
           Icon(Icons.navigate_next_rounded)
