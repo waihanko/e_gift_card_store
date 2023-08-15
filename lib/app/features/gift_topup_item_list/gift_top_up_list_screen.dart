@@ -1,10 +1,11 @@
+import 'package:e_gift_card_store/app/features/gift_card_item_list/gift_card_detail_screen.dart';
 import 'package:e_gift_card_store/app/widgets/game_card_item_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/dummy/categories_dummy.dart';
 import '../../constants/resources/app_dimens.dart';
 import '../../widgets/categories_dialog.dart';
-import '../../widgets/choose_sticky_categories_widget.dart';
+import '../../widgets/choose_categories_sticky_widget.dart';
 import '../../widgets/primary_app_bar_widget.dart';
 class GiftTopUpItemListScreen extends StatefulWidget {
   final String title;
@@ -22,7 +23,7 @@ class _GiftTopUpItemListScreenState extends State<GiftTopUpItemListScreen> {
       appBar: PrimaryAppBarWidget(title: widget.title),
       body: CustomScrollView(
         slivers: [
-          ChooseStickyCategoriesWidget(title: widget.title, onClick: ()=> dialogBuilder(context, widget.title)),
+          ChooseCategoriesStickyWidget(title: widget.title, onClick: ()=> dialogBuilder(context, widget.title)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(
                 horizontal: AppDimens.marginCardMedium2,
@@ -30,7 +31,7 @@ class _GiftTopUpItemListScreenState extends State<GiftTopUpItemListScreen> {
             sliver: SliverGrid(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  return const GameCardItemWidget();
+                  return  GameCardItemWidget(onClick:()=> goToGiftCardDetailScreen( "Detail", context));
                 },
                 childCount: 10,
               ),
@@ -54,5 +55,12 @@ Future<void> dialogBuilder(BuildContext context, String title,) {
     builder: (BuildContext context) {
       return CategoriesDialog(title: title, categoryList: gameTopUpCategoDummy);
     },
+  );
+}
+
+goToGiftCardDetailScreen(String title, BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => GiftCardDetailScreen(title: title)),
   );
 }

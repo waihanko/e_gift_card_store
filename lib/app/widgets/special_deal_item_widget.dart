@@ -5,7 +5,9 @@ import '../constants/resources/app_colors.dart';
 import '../constants/resources/app_dimens.dart';
 
 class SpecialDealItemWidget extends StatelessWidget {
+  final bool isFromHome;
   const SpecialDealItemWidget({
+    this.isFromHome = true,
     super.key,
   });
 
@@ -13,17 +15,16 @@ class SpecialDealItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width * 0.7,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(AppDimens.marginMedium)),
         color: AppColors.placeHolderColor,
       ),
-      margin: const EdgeInsets.only(right: AppDimens.marginMedium2),
+      margin: isFromHome? const EdgeInsets.only(right: AppDimens.marginMedium2) :const EdgeInsets.only(bottom: AppDimens.marginMedium2),
       child: Column(
         children: [
           Container(
-            width: MediaQuery.sizeOf(context).width * 0.7,
             height: 72,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(AppDimens.marginMedium)),
               color: AppColors.secondaryColor,
             ),
@@ -33,7 +34,7 @@ class SpecialDealItemWidget extends StatelessWidget {
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: AppDimens.marginCardMedium,
               ),
               Expanded(

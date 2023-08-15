@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../constants/resources/app_colors.dart';
 import '../constants/resources/app_dimens.dart';
 
-class ChooseStickyCategoriesWidget extends StatelessWidget {
-  const ChooseStickyCategoriesWidget({
+class ChooseCategoriesStickyWidget extends StatelessWidget {
+  const ChooseCategoriesStickyWidget({
     super.key,
     required this.onClick,
     required this.title,

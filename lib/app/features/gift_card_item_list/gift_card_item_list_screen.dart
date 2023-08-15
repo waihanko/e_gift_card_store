@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import '../../constants/dummy/categories_dummy.dart';
 import '../../constants/resources/app_dimens.dart';
 import '../../widgets/categories_dialog.dart';
-import '../../widgets/choose_sticky_categories_widget.dart';
+import '../../widgets/choose_categories_sticky_widget.dart';
 import '../../widgets/primary_app_bar_widget.dart';
+import 'gift_card_detail_screen.dart';
 class GiftCardItemListScreen extends StatefulWidget {
   final String title;
 
@@ -22,7 +23,7 @@ class _GiftCardItemListScreenState extends State<GiftCardItemListScreen> {
       appBar: PrimaryAppBarWidget(title: widget.title),
       body: CustomScrollView(
         slivers: [
-          ChooseStickyCategoriesWidget(title: widget.title, onClick: ()=> dialogBuilder(context, widget.title)),
+          ChooseCategoriesStickyWidget(title: widget.title, onClick: ()=> dialogBuilder(context, widget.title)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(
                 horizontal: AppDimens.marginCardMedium2,
@@ -30,7 +31,7 @@ class _GiftCardItemListScreenState extends State<GiftCardItemListScreen> {
             sliver: SliverGrid(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  return const GameCardItemWidget();
+                  return GameCardItemWidget(onClick: ()=> goToGiftCardDetailScreen("Detail", context),);
                 },
                 childCount: 10,
               ),
@@ -54,5 +55,13 @@ Future<void> dialogBuilder(BuildContext context, String title,) {
     builder: (BuildContext context) {
       return CategoriesDialog(title: title, categoryList: giftCardCategoDummy,);
     },
+  );
+}
+
+
+goToGiftCardDetailScreen(String title, BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => GiftCardDetailScreen(title: title)),
   );
 }

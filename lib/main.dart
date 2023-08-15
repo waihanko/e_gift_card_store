@@ -1,4 +1,6 @@
+import 'package:e_gift_card_store/app/constants/resources/app_dimens.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app/constants/resources/app_colors.dart';
 import 'app/features/home/home_screen.dart';
@@ -30,14 +32,26 @@ class MyApp extends StatelessWidget {
           color: AppColors.iconColor,
         ),
         appBarTheme: const AppBarTheme().copyWith(
-          color: AppColors.primaryColor,
-          iconTheme: IconThemeData().copyWith(
-            color: AppColors.iconColor,
-          )
-        ),
+            color: AppColors.primaryColor,
+            iconTheme: IconThemeData().copyWith(
+              color: AppColors.iconColor,
+            )),
         dialogTheme: DialogTheme().copyWith(
-          iconColor: AppColors.primaryColor,
-          contentTextStyle: TextStyle().copyWith(color: AppColors.primaryColor)
+            iconColor: AppColors.primaryColor,
+            contentTextStyle:
+                TextStyle().copyWith(color: AppColors.primaryColor)),
+        tabBarTheme: TabBarTheme(
+          labelColor: AppColors.secondaryButtonColor,
+          labelStyle: GoogleFonts.manrope(
+            fontSize: AppDimens.textMedium,
+            fontWeight: FontWeight.w600,
+            color: AppColors.secondaryButtonColor
+          ),
+          unselectedLabelStyle:  GoogleFonts.manrope(
+            fontSize: AppDimens.textMedium,
+              fontWeight: FontWeight.w600,
+              color: AppColors.primaryColor
+        )
         ),
         useMaterial3: true,
       ),
