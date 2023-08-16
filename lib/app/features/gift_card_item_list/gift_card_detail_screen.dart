@@ -5,7 +5,6 @@ import '../../widgets/rounded_icon_widget.dart';
 import '../../widgets/text_view_widget.dart';
 import 'package:collection/collection.dart';
 
-
 class GiftCardDetailScreen extends StatefulWidget {
   final String title;
 
@@ -56,8 +55,8 @@ class _GiftCardDetailScreenStates extends State<GiftCardDetailScreen>
     int? index = itemStartPoint
         .lastIndexWhere((value) => _controller.position.pixels >= value);
 
-    DefaultTabController.of(tabContext!)
-        .animateTo(index<0?0:index, duration: const Duration(milliseconds: 300));
+    DefaultTabController.of(tabContext!).animateTo(index < 0 ? 0 : index,
+        duration: const Duration(milliseconds: 300));
   }
 
   @override
@@ -137,7 +136,6 @@ class _GiftCardDetailScreenStates extends State<GiftCardDetailScreen>
                 automaticallyImplyLeading: false,
                 stretch: true,
                 flexibleSpace: FlexibleSpaceBar(
-
                   background: Stack(
                     children: [
                       Container(
@@ -206,26 +204,42 @@ class _GiftCardDetailScreenStates extends State<GiftCardDetailScreen>
                         key: dataKey[0],
                         height: tempDynamicHeight,
                         color: Colors.white,
-                        child: Center(child: TextViewWidget("Part 1", textSize: AppDimens.textHeading2X,)),
+                        child: Center(
+                            child: TextViewWidget(
+                          "Part 1",
+                          textSize: AppDimens.textHeading2X,
+                        )),
                       ),
                     ),
                     Container(
                       key: dataKey[1],
                       height: 120,
                       color: Color(0xFF6F85B7),
-                      child: Center(child: TextViewWidget("Part 2" , textSize: AppDimens.textHeading2X,)),
+                      child: Center(
+                          child: TextViewWidget(
+                        "Part 2",
+                        textSize: AppDimens.textHeading2X,
+                      )),
                     ),
                     Container(
                       key: dataKey[2],
                       height: 600,
-                      color:  Color(0xFF94B498),
-                      child: Center(child: TextViewWidget("Part 3",textSize: AppDimens.textHeading2X,)),
+                      color: Color(0xFF94B498),
+                      child: Center(
+                          child: TextViewWidget(
+                        "Part 3",
+                        textSize: AppDimens.textHeading2X,
+                      )),
                     ),
                     Container(
                       key: dataKey[3],
                       height: 800,
                       color: Color(0xFFA2B5BB),
-                      child: Center(child: TextViewWidget("Part 4",textSize: AppDimens.textHeading2X,)),
+                      child: Center(
+                          child: TextViewWidget(
+                        "Part 4",
+                        textSize: AppDimens.textHeading2X,
+                      )),
                     ),
                   ],
                 ),
