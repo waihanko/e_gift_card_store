@@ -7,6 +7,7 @@ import '../../constants/resources/app_dimens.dart';
 import '../../widgets/categories_dialog.dart';
 import '../../widgets/choose_categories_sticky_widget.dart';
 import '../../widgets/primary_app_bar_widget.dart';
+import '../gift_card_item_list/gift_card_item_list_screen.dart';
 class GiftTopUpItemListScreen extends StatefulWidget {
   final String title;
 
@@ -59,8 +60,8 @@ Future<void> dialogBuilder(BuildContext context, String title,) {
 }
 
 goToGiftCardDetailScreen(String title, BuildContext context) {
-  Navigator.push(
+  updatePaletteGenerator("assets/images/img.png").then((value) => Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => GiftCardDetailScreen(title: title)),
-  );
+    MaterialPageRoute(builder: (context) => GiftCardDetailScreen2(title: title, colorValue : value)),
+  ));
 }

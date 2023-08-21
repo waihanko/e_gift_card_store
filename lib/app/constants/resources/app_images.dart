@@ -23,5 +23,6 @@ abstract class AppImages {
   static const chinaDirectTopUpIcon = "assets/icons/china_direct_top_up_icon.svg";
   static const entertainmentIcon = "assets/icons/entertainment_icon.svg";
   static const liveStreamingIcon = "assets/icons/live_streaming_icon.svg";
-
+  static const bgItemDetail = "assets/images/bg_item_detail.png";
+  static const myanmarFlag = "assets/images/myanmar_flag.png";
 }

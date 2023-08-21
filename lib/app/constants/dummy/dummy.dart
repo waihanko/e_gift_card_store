@@ -1,0 +1,1 @@
+String dummyItemImage = "assets/images/binance_gift_card.png";

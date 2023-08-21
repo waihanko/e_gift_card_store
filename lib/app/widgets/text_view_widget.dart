@@ -26,7 +26,7 @@ class TextViewWidget extends StatelessWidget {
     this.letterSpacing = 0.0,
     this.textOverflow = TextOverflow.ellipsis,
     this.textDecoration = TextDecoration.none,
-    this.maxLines = 5,
+    this.maxLines,
     this.lineHeight = 1.2,
   }) : super(key: key);
 
@@ -44,7 +44,7 @@ class TextViewWidget extends StatelessWidget {
         height: lineHeight,
       ),
       maxLines: maxLines,
-      overflow: textOverflow,
+      overflow: maxLines != null? textOverflow : TextOverflow.visible,
     );
   }
 }

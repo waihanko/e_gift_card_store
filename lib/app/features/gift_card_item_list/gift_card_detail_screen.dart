@@ -1,253 +1,557 @@
+import 'package:e_gift_card_store/app/constants/resources/app_images.dart';
+import 'package:e_gift_card_store/app/features/gift_card_item_list/widgets/related_card_section_view.dart';
+import 'package:e_gift_card_store/app/features/gift_card_item_list/widgets/scrollable_tab_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:palette_generator/palette_generator.dart';
+
+import '../../constants/dummy/dummy.dart';
 import '../../constants/resources/app_colors.dart';
 import '../../constants/resources/app_dimens.dart';
-import '../../widgets/rounded_icon_widget.dart';
 import '../../widgets/text_view_widget.dart';
-import 'package:collection/collection.dart';
 
-class GiftCardDetailScreen extends StatefulWidget {
+class GiftCardDetailScreen2 extends StatefulWidget {
+  const GiftCardDetailScreen2(
+      {super.key, required this.title, required this.colorValue});
+
   final String title;
-
-  const GiftCardDetailScreen({super.key, required this.title});
+  final PaletteGenerator colorValue;
 
   @override
-  State<GiftCardDetailScreen> createState() => _GiftCardDetailScreenStates();
+  State<GiftCardDetailScreen2> createState() => _GiftCardDetailScreen2State();
 }
 
-class _GiftCardDetailScreenStates extends State<GiftCardDetailScreen>
-    with TickerProviderStateMixin {
-  late ScrollController _controller;
-  bool sliverActionsHidden = false;
-  BuildContext? tabContext;
-  double opacity = 0;
-  double toolBarHeight = 150;
-  double tempDynamicHeight = 200;
-  late List<double> itemStartPoint;
-  final List<GlobalKey<State<StatefulWidget>>> dataKey = [
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-  ];
-
-  void scrollListener() {
-    setState(() {
-      opacity = (_controller.position.pixels / toolBarHeight).clamp(0.0, 1.0);
-    });
-
-    List<double> heightOfWidget = dataKey
-        .mapIndexed((index, item) =>
-            ((item.currentContext?.findRenderObject() as RenderBox)
-                .size
-                .height))
-        .toList();
-
-    double previousValue = 0.0;
-    itemStartPoint = [
-      0.0,
-      ...heightOfWidget.map((value) {
-        double newValue = previousValue + value;
-        previousValue = newValue;
-        return newValue + toolBarHeight;
-      })
-    ];
-
-    int? index = itemStartPoint
-        .lastIndexWhere((value) => _controller.position.pixels >= value);
-
-    DefaultTabController.of(tabContext!).animateTo(index < 0 ? 0 : index,
-        duration: const Duration(milliseconds: 300));
-  }
+class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
+  late PaletteGenerator paletteGenerator;
 
   @override
   void initState() {
-    _controller = ScrollController();
-    _controller.addListener(scrollListener);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: Builder(builder: (context) {
-        tabContext = context;
-        return Scaffold(
-          extendBody: false,
-          extendBodyBehindAppBar: true,
-          appBar: AppBar(
-            backgroundColor: AppColors.primaryColor.withOpacity(opacity),
-            surfaceTintColor: Colors.transparent,
-            bottomOpacity: opacity,
-            centerTitle: true,
-            iconTheme: IconThemeData(
-                color: opacity < 0.5 ? AppColors.primaryColor : Colors.black),
-            actions: [
-              RoundedIconWidget(
-                icon: Icon(
-                  Icons.favorite_outline_rounded,
-                ),
-                backgroundColor: Colors.transparent,
-              )
-            ],
-            title: TextViewWidget(
-              "Scroll Tabs",
-              textColor: AppColors.primaryTextColor.withOpacity(opacity),
+    return ScrollableTabWidget(
+        title: widget.title,
+        header: Stack(
+          children: [
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                    image: const DecorationImage(
+                        image: AssetImage(
+                          AppImages.bgItemDetail,
+                        ),
+                        fit: BoxFit.cover),
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color.lerp(widget.colorValue.dominantColor?.color,
+                              Colors.white, 0.4)!,
+                          Color.lerp(widget.colorValue.dominantColor?.color,
+                              Colors.grey, 0.1)!,
+                        ])),
+              ),
             ),
-            bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(28),
-              child: TabBar(
-                  indicatorColor: AppColors.secondaryButtonColor,
-                  unselectedLabelColor: AppColors.secondaryTextColor,
-                  dividerColor: Colors.transparent,
-                  onTap: (index) {
-                    _controller.position.animateTo(
-                      itemStartPoint[index],
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.linear,
-                    );
-                  },
-                  tabs: const [
-                    Tab(
-                      height: 28,
-                      text: "Part 1",
-                    ),
-                    Tab(
-                      height: 28,
-                      text: "Part 2",
-                    ),
-                    Tab(
-                      height: 28,
-                      text: "Part 3",
-                    ),
-                    Tab(
-                      height: 28,
-                      text: "Part 4",
-                    ),
-                  ]),
-            ),
-          ),
-          body: CustomScrollView(
-            controller: _controller,
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              SliverAppBar(
-                toolbarHeight: toolBarHeight,
-                automaticallyImplyLeading: false,
-                stretch: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Stack(
+            Container(
+              padding: const EdgeInsets.all(AppDimens.marginCardMedium2),
+              child: Column(
+                children: [
+                  const SizedBox(
+                      height: kToolbarHeight + AppDimens.marginCardMedium),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
+                        width: 86,
+                        height: 120,
                         decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/test.png",
-                                ),
-                                fit: BoxFit.cover)),
-                        // color: AppColors.primaryColor,
+                          borderRadius: BorderRadius.circular(12),
+                          image: DecorationImage(
+                              image: AssetImage(
+                                dummyItemImage,
+                              ),
+                              fit: BoxFit.cover),
+                        ),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(AppDimens.marginCardMedium2),
+                      SizedBox(
+                        width: AppDimens.marginCardMedium,
+                      ),
+                      Expanded(
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            TextViewWidget(
+                              widget.title,
+                              textColor: getTextColor(
+                                  widget.colorValue.dominantColor?.color ??
+                                      Colors.white),
+                              fontWeight: FontWeight.w600,
+                              textSize: AppDimens.textRegular2X,
+                              maxLines: 2,
+                            ),
                             SizedBox(
-                                height: kToolbarHeight +
-                                    AppDimens.marginCardMedium),
+                              height: AppDimens.marginCardMedium2,
+                            ),
                             Row(
                               children: [
                                 Container(
-                                  width: 86,
-                                  height: 120,
+                                  height: 16,
+                                  width: 20,
                                   decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                            "assets/images/img.png",
-                                          ),
-                                          fit: BoxFit.cover)),
+                                    borderRadius: BorderRadius.circular(12),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        AppImages.myanmarFlag,
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
+                                SizedBox(
+                                  width: AppDimens.marginMedium,
+                                ),
+                                TextViewWidget(
+                                  "Myanmar",
+                                  textColor: getTextColor(
+                                      widget.colorValue.dominantColor?.color ??
+                                          Colors.white),
+                                  textSize: AppDimens.textSmall,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: AppDimens.marginMedium,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.flag_circle_sharp,
+                                  size: 20,
+                                ),
+                                SizedBox(
+                                  width: AppDimens.marginMedium,
+                                ),
+                                TextViewWidget(
+                                  "Instant Delivery",
+                                  textColor: getTextColor(
+                                      widget.colorValue.dominantColor?.color ??
+                                          Colors.white),
+                                  textSize: AppDimens.textSmall,
+                                )
                               ],
                             ),
                           ],
                         ),
-                      ),
-                      Positioned(
-                        bottom: -2,
-                        left: 0,
-                        right: 0,
-                        child: Container(
-                          height: 14,
-                          decoration: const BoxDecoration(
-                            color: AppColors.primaryColor,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(AppDimens.marginXLarge),
-                              topRight: Radius.circular(AppDimens.marginXLarge),
-                            ),
-                          ),
-                        ),
                       )
                     ],
                   ),
+                ],
+              ),
+            ),
+            Positioned(
+              bottom: -2,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 14,
+                decoration: const BoxDecoration(
+                  color: AppColors.primaryColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(AppDimens.marginXLarge),
+                    topRight: Radius.circular(AppDimens.marginXLarge),
+                  ),
                 ),
               ),
-              SliverToBoxAdapter(
+            )
+          ],
+        ),
+        tabs: [
+          "Description",
+          "Instruction",
+          "Reviews",
+          "Related"
+        ],
+        tabBarView: [
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppDimens.marginCardMedium2,
+                    vertical: AppDimens.marginMedium),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tempDynamicHeight = tempDynamicHeight + 40;
-                        });
-                      },
-                      child: Container(
-                        key: dataKey[0],
-                        height: tempDynamicHeight,
-                        color: Colors.white,
-                        child: Center(
-                            child: TextViewWidget(
-                          "Part 1",
-                          textSize: AppDimens.textHeading2X,
-                        )),
-                      ),
+                    Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          color: AppColors.secondaryColor,
+                        ),
+                        SizedBox(
+                          width: AppDimens.marginCardMedium,
+                        ),
+                        TextViewWidget(
+                          widget.title,
+                          fontWeight: FontWeight.w600,
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: AppDimens.marginCardMedium,
                     ),
                     Container(
-                      key: dataKey[1],
-                      height: 120,
-                      color: Color(0xFF6F85B7),
-                      child: Center(
-                          child: TextViewWidget(
-                        "Part 2",
-                        textSize: AppDimens.textHeading2X,
-                      )),
+                      height: 0.1,
+                      color: AppColors.iconColor,
                     ),
-                    Container(
-                      key: dataKey[2],
-                      height: 600,
-                      color: Color(0xFF94B498),
-                      child: Center(
-                          child: TextViewWidget(
-                        "Part 3",
-                        textSize: AppDimens.textHeading2X,
-                      )),
+                    const SizedBox(
+                      height: AppDimens.marginCardMedium,
                     ),
-                    Container(
-                      key: dataKey[3],
-                      height: 800,
-                      color: Color(0xFFA2B5BB),
-                      child: Center(
-                          child: TextViewWidget(
-                        "Part 4",
-                        textSize: AppDimens.textHeading2X,
-                      )),
+                    Row(
+                      children: [
+                        TextViewWidget(
+                          "Total",
+                          fontWeight: FontWeight.w600,
+                          textSize: AppDimens.textRegular2X,
+                        ),
+                        Spacer(),
+                        TextViewWidget(
+                          "US\$ 150",
+                          fontWeight: FontWeight.w600,
+                          textSize: AppDimens.textRegular2X,
+                          textColor: AppColors.secondaryButtonColor,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: AppDimens.marginCardMedium,
+                    ),
+                    Row(
+                      children: [
+                        TextViewWidget(
+                          "Seagm Credit",
+                          textSize: AppDimens.textMedium,
+                        ),
+                        Spacer(),
+                        Row(
+                          children: [
+                            TextViewWidget(
+                              "425",
+                              textSize: AppDimens.textMedium,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: AppDimens.marginMedium,
+                    ),
+                    Row(
+                      children: [
+                        TextViewWidget(
+                          "Discount",
+                          textSize: AppDimens.textMedium,
+                        ),
+                        Spacer(),
+                        Row(
+                          children: [
+                            TextViewWidget(
+                              "US\$ 0.04(4.0%)",
+                              textSize: AppDimens.textMedium,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: AppDimens.marginMedium,
                     ),
                   ],
                 ),
+              ),
+              Container(
+                height: AppDimens.marginMedium,
+                color: AppColors.secondaryColor,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppDimens.marginCardMedium2,
+                    vertical: AppDimens.marginCardMedium2),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextViewWidget(
+                      "About ${widget.title}",
+                      fontWeight: FontWeight.w600,
+                      textSize: AppDimens.textRegular2X,
+                    ),
+                    const SizedBox(
+                      height: AppDimens.marginMedium,
+                    ),
+                    TextViewWidget(
+                      "Discover the perfect present for any occasion with our versatile gift cards. Whether it's a birthday, anniversary, or just to show you care, our gift cards let them pick their favorite items from our wide selection. From fashion to gadgets, they'll find something special that's just right for them. It's the ultimate way to make someone's day memorable" *
+                          3,
+                      lineHeight: 1.5,
+                      textSize: AppDimens.textMedium,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    SizedBox(
+                      height: AppDimens.marginCardMedium,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: AppDimens.marginMedium,
+                color: AppColors.secondaryColor,
+              ),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppDimens.marginCardMedium2,
+                    vertical: AppDimens.marginCardMedium2),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextViewWidget(
+                      "How to redeem ${widget.title}?",
+                      fontWeight: FontWeight.w600,
+                      textSize: AppDimens.textRegular2X,
+                    ),
+                    const SizedBox(
+                      height: AppDimens.marginMedium,
+                    ),
+                    TextViewWidget(
+                      "Discover the perfect present for any occasion with our versatile gift cards. Whether it's a birthday, anniversary, or just to show you care, our gift cards let them pick their favorite items from our wide selection. From fashion to gadgets, they'll find something special that's just right for them. It's the ultimate way to make someone's day memorable" *
+                          3,
+                      lineHeight: 1.5,
+                      textSize: AppDimens.textMedium,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: AppDimens.marginMedium,
+                color: AppColors.secondaryColor,
+              ),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppDimens.marginCardMedium2,
+                    vertical: AppDimens.marginCardMedium2),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        TextViewWidget(
+                          "User Reviews",
+                          fontWeight: FontWeight.w600,
+                          textSize: AppDimens.textRegular2X,
+                        ),
+                        Spacer(),
+                        Column(
+                          children: [
+                            TextViewWidget(
+                              "5210",
+                              fontWeight: FontWeight.w600,
+                              textSize: AppDimens.textRegular2X,
+                            ),
+                            TextViewWidget(
+                              "Reviews",
+                              fontWeight: FontWeight.w500,
+                              textSize: AppDimens.textSmall,
+                              textColor: AppColors.secondaryTextColor,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: AppDimens.marginSmall,
+                        ),
+                        Container(
+                          width: 0.5,
+                          color: AppColors.secondaryTextColor,
+                          height: 30,
+                        ),
+                        SizedBox(
+                          width: AppDimens.marginSmall,
+                        ),
+                        Column(
+                          children: [
+                            TextViewWidget(
+                              "4.5",
+                              fontWeight: FontWeight.w600,
+                              textSize: AppDimens.textRegular2X,
+                            ),
+                            TextViewWidget(
+                              "Reviews",
+                              fontWeight: FontWeight.w500,
+                              textSize: AppDimens.textSmall,
+                              textColor: AppColors.secondaryTextColor,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: AppDimens.marginCardMedium2,
+                    ),
+                    ListView.builder(
+                      padding: EdgeInsets.zero,
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) =>
+                          const UserReviewListItem(),
+                      itemCount: 8,
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextViewWidget(
+                            "View More",
+                            textSize: AppDimens.textMedium,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 14,
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: AppDimens.marginMedium,
+                color: AppColors.secondaryColor,
+              ),
+              SizedBox(
+                height: AppDimens.marginCardMedium,
               )
             ],
           ),
-        );
-      }),
+          RelatedCardSectionView(),
+        ]);
+  }
+}
+
+class UserReviewListItem extends StatelessWidget {
+  const UserReviewListItem({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(bottom: AppDimens.marginXLarge),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+                color: AppColors.secondaryColor, shape: BoxShape.circle),
+          ),
+          SizedBox(
+            width: AppDimens.marginCardMedium,
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextViewWidget(
+                            "User Name",
+                            lineHeight: 2,
+                            fontWeight: FontWeight.w600,
+                            textSize: AppDimens.textMedium,
+                          ),
+                          TextViewWidget(
+                            "12/2/2023",
+                            fontWeight: FontWeight.w400,
+                            textSize: AppDimens.textSmall,
+                            textColor: AppColors.secondaryTextColor,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Spacer(),
+                    Expanded(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.star,
+                              size: 16,
+                              color: AppColors.secondaryButtonColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 16,
+                              color: AppColors.secondaryButtonColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 16,
+                              color: AppColors.secondaryButtonColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 16,
+                              color: AppColors.secondaryButtonColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 16,
+                              color: AppColors.secondaryButtonColor,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: AppDimens.marginCardMedium,
+                ),
+                TextViewWidget(
+                  "Nice! Better" * 30,
+                  fontWeight: FontWeight.w300,
+                  textSize: AppDimens.textMedium,
+                  lineHeight: 1.6,
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
+}
+
+Color getTextColor(Color color) {
+  final luminance = color.computeLuminance();
+  return luminance > 0.5 ? Colors.black : Colors.white;
 }

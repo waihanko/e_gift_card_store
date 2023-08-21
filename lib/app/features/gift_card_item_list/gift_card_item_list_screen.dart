@@ -1,5 +1,7 @@
+import 'package:e_gift_card_store/app/constants/dummy/dummy.dart';
 import 'package:e_gift_card_store/app/widgets/game_card_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 import '../../constants/dummy/categories_dummy.dart';
 import '../../constants/resources/app_dimens.dart';
@@ -31,7 +33,7 @@ class _GiftCardItemListScreenState extends State<GiftCardItemListScreen> {
             sliver: SliverGrid(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  return GameCardItemWidget(onClick: ()=> goToGiftCardDetailScreen("Detail", context),);
+                  return GameCardItemWidget(onClick: ()=> goToGiftCardDetailScreen("Binance Gift Card", context),);
                 },
                 childCount: 10,
               ),
@@ -60,8 +62,17 @@ Future<void> dialogBuilder(BuildContext context, String title,) {
 
 
 goToGiftCardDetailScreen(String title, BuildContext context) {
-  Navigator.push(
+  updatePaletteGenerator(dummyItemImage).then((value) => Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => GiftCardDetailScreen(title: title)),
+    MaterialPageRoute(builder: (context) => GiftCardDetailScreen2(title: title, colorValue : value)),
+  ));
+
+}
+
+Future<PaletteGenerator> updatePaletteGenerator (String imagePath)async
+{
+  var paletteGenerator = await PaletteGenerator.fromImageProvider(
+    Image.asset(imagePath).image,
   );
+  return paletteGenerator;
 }
