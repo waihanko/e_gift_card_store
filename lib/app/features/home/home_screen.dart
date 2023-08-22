@@ -1,21 +1,15 @@
 import 'package:e_gift_card_store/app/constants/resources/app_colors.dart';
+import 'package:e_gift_card_store/app/features/home/widgets/horizontal_gift_card_section_view.dart';
+import 'package:e_gift_card_store/app/features/home/widgets/horizontal_gift_topup_section_view.dart';
 import 'package:e_gift_card_store/app/features/home/widgets/news_and_promotions_section_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../constants/resources/app_dimens.dart';
-import '../../widgets/game_card_item_widget.dart';
-import '../../widgets/game_top_up_item_widget.dart';
-import 'widgets/home_menu_section_view.dart';
-import 'widgets/new_game_card_section_view.dart';
-import 'widgets/new_game_topup_section_view.dart';
-import '../../widgets/news_and_promotion_item_widget.dart';
-import '../../widgets/platform_item_widget.dart';
-import 'widgets/platorm_item_section_view.dart';
-import '../../widgets/rounded_icon_widget.dart';
+import '../../constants/routing/screen_route.dart';
+import '../../widgets/section_view_banner.dart';
 import '../../widgets/special_deal_section_view.dart';
-import '../../widgets/text_view_widget.dart';
+import 'widgets/home_menu_section_view.dart';
+import 'widgets/platorm_item_section_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,14 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Stack(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 24),
-                      decoration: BoxDecoration(
-                          color: AppColors.secondaryColor,
-                          borderRadius: BorderRadius.circular(
-                              AppDimens.marginCardMedium2)),
-                      // color: AppColors.primaryColor,
-                    ),
+                    SectionViewBanner(),
                     Positioned(
                       bottom: 0,
                       left: 0,
@@ -73,9 +60,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
+          SliverToBoxAdapter(
+            child: ListView(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
                 HomeMenuSectionView(),
                 SizedBox(
                   height: AppDimens.marginLarge,
@@ -84,11 +73,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: AppDimens.marginXXLarge,
                 ),
-                NewGameCardSectionView(),
+                HorizontalGiftCardSectionView(
+                  title: "New Game Cards",
+                  onItemClick: (item) =>
+                      ScreenRoute.goToGiftCardDetailScreen(item, context),
+                ),
                 SizedBox(
                   height: AppDimens.marginXXLarge,
                 ),
-                NewGameTopUpSectionView(),
+                HorizontalGiftTopUpSectionView(
+                    title: "New Game TopUp",
+                    onItemClick: (item) =>
+                        ScreenRoute.goToGiftTopUpDetailScreen(item, context)),
                 SizedBox(
                   height: AppDimens.marginXXLarge,
                 ),

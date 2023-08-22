@@ -1,16 +1,14 @@
-import 'package:e_gift_card_store/app/constants/dummy/game_card_dummy_list.dart';
 import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
-
 import '../constants/dummy/top_up_card_dummy_list.dart';
 import '../constants/resources/app_colors.dart';
 import '../constants/resources/app_dimens.dart';
 
-class GameCardItemWidget extends StatelessWidget {
+class GiftTopUpItemWidget extends StatelessWidget {
   final Function? onClick;
   final GiftCardItemVo? item;
 
-  const GameCardItemWidget({
+  const GiftTopUpItemWidget({
     this.item,
     this.onClick,
     super.key,
@@ -23,9 +21,17 @@ class GameCardItemWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            item?.imageUrl ?? "",
-            fit: BoxFit.fitHeight,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              width: 120,
+              height: 120,
+              color: AppColors.secondaryColor,
+              child: Image.asset(
+                item?.imageUrl ?? "",
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           const SizedBox(
             height: AppDimens.marginMedium,

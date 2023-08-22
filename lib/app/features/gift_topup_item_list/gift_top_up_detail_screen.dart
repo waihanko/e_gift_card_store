@@ -1,6 +1,7 @@
 import 'package:e_gift_card_store/app/constants/resources/app_images.dart';
 import 'package:e_gift_card_store/app/constants/routing/screen_route.dart';
 import 'package:e_gift_card_store/app/widgets/scrollable_tab_widget.dart';
+import 'package:e_gift_card_store/app/widgets/user_reviews_section_view.dart';
 import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
 
@@ -8,10 +9,10 @@ import '../../constants/dummy/top_up_card_dummy_list.dart';
 import '../../constants/resources/app_colors.dart';
 import '../../constants/resources/app_dimens.dart';
 import '../../widgets/text_view_widget.dart';
-import '../home/widgets/horizontal_gift_card_section_view.dart';
+import '../home/widgets/horizontal_gift_topup_section_view.dart';
 
-class GiftCardDetailScreen2 extends StatefulWidget {
-  const GiftCardDetailScreen2({
+class GiftTopUpDetailScreen extends StatefulWidget {
+  const GiftTopUpDetailScreen({
     super.key,
     required this.item,
     required this.bgColor,
@@ -21,10 +22,10 @@ class GiftCardDetailScreen2 extends StatefulWidget {
   final List<Color>? bgColor;
 
   @override
-  State<GiftCardDetailScreen2> createState() => _GiftCardDetailScreen2State();
+  State<GiftTopUpDetailScreen> createState() => _GiftTopUpDetailScreenState();
 }
 
-class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
+class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
   late PaletteGenerator paletteGenerator;
 
   @override
@@ -41,7 +42,7 @@ class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
             Positioned.fill(
               child: Container(
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       image: AssetImage(
                         AppImages.bgItemDetail,
                       ),
@@ -354,94 +355,7 @@ class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: AppDimens.marginCardMedium2,
-                    vertical: AppDimens.marginCardMedium2),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        TextViewWidget(
-                          "User Reviews",
-                          textSize: AppDimens.textRegular,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        Spacer(),
-                        Column(
-                          children: [
-                            TextViewWidget(
-                              "5210",
-                              textSize: AppDimens.textRegular,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            TextViewWidget(
-                              "Reviews",
-                              fontWeight: FontWeight.w500,
-                              textSize: AppDimens.textSmall,
-                              textColor: AppColors.secondaryTextColor,
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: AppDimens.marginSmall,
-                        ),
-                        Container(
-                          width: 0.5,
-                          color: AppColors.secondaryTextColor,
-                          height: 30,
-                        ),
-                        SizedBox(
-                          width: AppDimens.marginSmall,
-                        ),
-                        Column(
-                          children: [
-                            TextViewWidget(
-                              "4.5",
-                              textSize: AppDimens.textRegular,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            TextViewWidget(
-                              "Reviews",
-                              fontWeight: FontWeight.w500,
-                              textSize: AppDimens.textSmall,
-                              textColor: AppColors.secondaryTextColor,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: AppDimens.marginCardMedium2,
-                    ),
-                    ListView.builder(
-                      padding: EdgeInsets.zero,
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) =>
-                          const UserReviewListItem(),
-                      itemCount: 8,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextViewWidget(
-                            "View More",
-                            textSize: AppDimens.textMedium,
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            size: 14,
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
+              UserReviewSectionView(),
               Container(
                 height: AppDimens.marginMedium,
                 color: AppColors.secondaryColor,
@@ -451,112 +365,16 @@ class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
               )
             ],
           ),
-          HorizontalGiftCardSectionView(
+          HorizontalGiftTopUpSectionView(
               title: "Related Cards",
               onItemClick: (item) =>
-                  ScreenRoute.goToGiftCardDetailScreen(item, context)),
+                  ScreenRoute.goToGiftTopUpDetailScreen(item, context)),
         ]);
   }
 }
 
-class UserReviewListItem extends StatelessWidget {
-  const UserReviewListItem({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(bottom: AppDimens.marginXLarge),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 48,
-            height: 48,
-            decoration: BoxDecoration(
-                color: AppColors.secondaryColor, shape: BoxShape.circle),
-          ),
-          SizedBox(
-            width: AppDimens.marginCardMedium,
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextViewWidget(
-                            "User Name",
-                            lineHeight: 2,
-                            fontWeight: FontWeight.w600,
-                            textSize: AppDimens.textMedium,
-                          ),
-                          TextViewWidget(
-                            "12/2/2023",
-                            fontWeight: FontWeight.w400,
-                            textSize: AppDimens.textSmall,
-                            textColor: AppColors.secondaryTextColor,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Spacer(),
-                    Expanded(
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: AppColors.secondaryButtonColor,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: AppColors.secondaryButtonColor,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: AppColors.secondaryButtonColor,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: AppColors.secondaryButtonColor,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: AppColors.secondaryButtonColor,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: AppDimens.marginCardMedium,
-                ),
-                TextViewWidget(
-                  "Nice! Better" * 30,
-                  fontWeight: FontWeight.w300,
-                  textSize: AppDimens.textMedium,
-                  lineHeight: 1.6,
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
+Color getTextColor(Color color) {
+  final luminance = color.computeLuminance();
+  return luminance > 0.5 ? Colors.black : Colors.white;
 }

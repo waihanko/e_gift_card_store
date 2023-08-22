@@ -1,12 +1,12 @@
 //ignore: must_be_immutable
 import 'package:flutter/material.dart';
 
-import '../../../constants/resources/app_colors.dart';
-import '../../../constants/resources/app_dimens.dart';
-import '../../../widgets/rounded_icon_widget.dart';
+import '../constants/resources/app_colors.dart';
+import '../constants/resources/app_dimens.dart';
+import 'rounded_icon_widget.dart';
 import 'package:collection/collection.dart';
 
-import '../../../widgets/text_view_widget.dart';
+import 'text_view_widget.dart';
 
 //ignore: must_be_immutable
 class ScrollableTabWidget extends StatefulWidget {

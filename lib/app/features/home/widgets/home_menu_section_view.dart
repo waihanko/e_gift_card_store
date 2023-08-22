@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/resources/app_colors.dart';
 import '../../../constants/resources/app_dimens.dart';
+import '../../../constants/routing/screen_route.dart';
 import '../../gift_card_item_list/gift_card_item_list_screen.dart';
 import 'menu_item_widget.dart';
 
@@ -26,29 +27,29 @@ class HomeMenuSectionView extends StatelessWidget {
                 backgroundColor: AppColors.dimBlueBgColor,
                 text: "Game Cards",
                 iconName: AppImages.gameCardsIcon,
-                onTapMenu:()=>  goToGiftCardItemListScreen("Game Cards", context),
+                onTapMenu:()=>  ScreenRoute.goToGiftCardItemListScreen("Game Cards", context),
               ),
               MenuItemWidget(
                 backgroundColor: AppColors.dimRedBgColor,
                 text: "Gift Cards",
                 iconName: AppImages.giftCardsIcon,
-                onTapMenu:()=>  goToGiftCardItemListScreen("Gift Cards", context),
+                onTapMenu:()=>  ScreenRoute.goToGiftCardItemListScreen("Gift Cards", context),
               ),
               MenuItemWidget(
                 backgroundColor: AppColors.dimGreenBgColor,
                 text: "CD-Keys",
                 iconName: AppImages.cdKeyIcon,
-                onTapMenu:()=>  goToGiftCardItemListScreen("CD-Keys", context),
+                onTapMenu:()=>  ScreenRoute.goToGiftCardItemListScreen("CD-Keys", context),
               ),
               MenuItemWidget(
                 backgroundColor: AppColors.dimBlueBgColor,
                 text: "Game Consoles",
                 iconName: AppImages.gameConsoleIcon,
-                onTapMenu:()=>  goToGiftCardItemListScreen("Game Consoles", context),
+                onTapMenu:()=>  ScreenRoute.goToGiftCardItemListScreen("Game Consoles", context),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: AppDimens.marginCardMedium2,
           ),
           Row(
@@ -58,25 +59,25 @@ class HomeMenuSectionView extends StatelessWidget {
                 backgroundColor: AppColors.dimYellowBgColor,
                 text: "Shopping",
                 iconName: AppImages.shoppingIcon,
-                onTapMenu:()=>  goToGiftCardItemListScreen("Shopping", context),
+                onTapMenu:()=>  ScreenRoute.goToGiftCardItemListScreen("Shopping", context),
               ),
               MenuItemWidget(
                 backgroundColor: AppColors.dimPurpleBgColor,
                 text: "Music",
                 iconName: AppImages.musicIcon,
-                onTapMenu:()=>  goToGiftCardItemListScreen("Music", context),
+                onTapMenu:()=>  ScreenRoute.goToGiftCardItemListScreen("Music", context),
               ),
               MenuItemWidget(
                 backgroundColor: AppColors.dimRedBgColor,
                 text: "Direct Top-Up",
                 iconName: AppImages.directTopUpIcon,
-                onTapMenu:()=>  goToGiftTopUpItemListScreen("Direct Top-Up", context),
+                onTapMenu:()=>  ScreenRoute.goToGiftTopUpItemListScreen("Direct Top-Up", context),
               ),
               MenuItemWidget(
                 backgroundColor: AppColors.dimBlueBgColor,
                 text: "Mobile Recharge",
                 iconName: AppImages.mobileRechargeIcon,
-                onTapMenu:()=>  goToGiftTopUpItemListScreen("Mobile Recharge", context),
+                onTapMenu:()=>  ScreenRoute.goToGiftTopUpItemListScreen("Mobile Recharge", context),
               ),
             ],
           ),
@@ -84,19 +85,4 @@ class HomeMenuSectionView extends StatelessWidget {
       ),
     );
   }
-
-  goToGiftCardItemListScreen(String title, BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => GiftCardItemListScreen(title: title)),
-    );
-  }
-
-  goToGiftTopUpItemListScreen(String title, BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => GiftTopUpItemListScreen(title: title)),
-    );
-  }
-
 }

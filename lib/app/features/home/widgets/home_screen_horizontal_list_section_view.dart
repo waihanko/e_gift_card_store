@@ -26,7 +26,7 @@ class HomeScreenHorizontalListSectionView extends StatelessWidget {
       children: [
         Padding(
           padding:
-              const EdgeInsets.symmetric(horizontal: AppDimens.marginXLarge),
+              const EdgeInsets.symmetric(horizontal: AppDimens.marginLarge),
           child: Row(
             children: [
               TextViewWidget(
@@ -56,7 +56,7 @@ class HomeScreenHorizontalListSectionView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Padding(
             padding: const EdgeInsets.only(
-              left: AppDimens.marginXLarge,
+              left: AppDimens.marginLarge,
               right: AppDimens.marginCardMedium2,
             ),
             child: itemList,
