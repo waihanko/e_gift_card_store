@@ -21,7 +21,7 @@ class SpecialDealItemWidget extends StatelessWidget {
       width: MediaQuery.sizeOf(context).width * 0.7,
       decoration:  BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(AppDimens.marginMedium)),
-        color: AppColors.placeHolderColor,
+        color: AppColors.secondaryColor,
       ),
       margin: isFromHome
           ? const EdgeInsets.only(right: AppDimens.marginMedium2)
@@ -33,7 +33,7 @@ class SpecialDealItemWidget extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium),
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: item?.bgColor??[]
+                colors: item?.bgColor??[AppColors.secondaryColor, AppColors.secondaryColor,]
               ),
               borderRadius: BorderRadius.circular(AppDimens.marginMedium)
             ),
@@ -119,7 +119,6 @@ class SpecialDealItemWidget extends StatelessWidget {
                   textSize: AppDimens.textMedium,
                   fontWeight: FontWeight.w600,
                   textAlign: TextAlign.right,
-                  textColor: item?.textColor,
                 ),
               ),
               const SizedBox(

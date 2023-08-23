@@ -9,7 +9,6 @@ abstract class AppColors {
   static const Color secondaryTextColor = Color(0xFF7C7C7C);
   static const Color promoBgColor = Color(0xFF377D22);
   static const Color iconColor = Color(0xFF1B1B1B);
-  static const Color placeHolderColor = Color(0xFFF6FBF4);
   static const Color screenBgColor = Color(0xFFF7F7F7);
 
   static const Color dimBlueBgColor = Color(0x3434C3EE);

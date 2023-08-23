@@ -29,4 +29,8 @@ class GiftCardItemVo {
       textColor = AppUtils.getTextColor(paletteGenerator.dominantColor?.color);
     });
   }
+
+  GiftCardItemVo.normal(this.name, this.imageUrl) {
+    GiftCardItemVo(name,imageUrl);
+  }
 }

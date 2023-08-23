@@ -24,6 +24,12 @@ class MyApp extends StatelessWidget {
           background: AppColors.primaryColor,
           secondary: AppColors.primaryButtonColor,
         ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: ButtonStyle().copyWith(
+            backgroundColor: MaterialStateProperty.all<Color>(  AppColors.secondaryColor),
+            iconColor:MaterialStateProperty.all<Color>(  AppColors.iconColor),
+          )
+        ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData()
             .copyWith(
                 backgroundColor: AppColors.primaryButtonColor,

@@ -2,6 +2,7 @@ import 'package:e_gift_card_store/app/constants/resources/app_colors.dart';
 import 'package:e_gift_card_store/app/features/home/widgets/horizontal_gift_card_section_view.dart';
 import 'package:e_gift_card_store/app/features/home/widgets/horizontal_gift_topup_section_view.dart';
 import 'package:e_gift_card_store/app/features/home/widgets/news_and_promotions_section_view.dart';
+import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/resources/app_dimens.dart';
@@ -50,9 +51,26 @@ class _HomeScreenState extends State<HomeScreen> {
                             horizontal: AppDimens.marginCardMedium2),
                         height: 48,
                         decoration: BoxDecoration(
-                            color: AppColors.placeHolderColor,
-                            borderRadius:
-                                BorderRadius.circular(AppDimens.marginXLarge)),
+                          color: AppColors.secondaryColor,
+                          borderRadius:
+                              BorderRadius.circular(AppDimens.marginXLarge),
+                        ),
+                        child: OutlinedButton(
+                          child:   const Stack(
+                            children: [
+                              Positioned(
+                                top: 0,
+                                bottom: 0,
+                                left: AppDimens.marginCardMedium,
+                                child: Icon(Icons.search_rounded),
+                              ),
+                              Center(child: TextViewWidget("Search"))
+                            ],
+                          ),
+                          onPressed: () {},
+                        ),
+
+
                       ),
                     )
                   ],
