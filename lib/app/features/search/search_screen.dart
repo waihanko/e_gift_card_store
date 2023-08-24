@@ -1,0 +1,291 @@
+import 'package:e_gift_card_store/app/constants/dummy/game_card_dummy_list.dart';
+import 'package:e_gift_card_store/app/constants/resources/app_colors.dart';
+import 'package:e_gift_card_store/app/constants/resources/app_dimens.dart';
+import 'package:e_gift_card_store/app/widgets/game_card_item_widget.dart';
+import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../../widgets/custom_text_field.dart';
+import '../../widgets/search_field_widget.dart';
+import '../../widgets/special_deal_item_widget.dart';
+
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
+
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  TextEditingController searchEditingController = TextEditingController();
+  bool isShowDataView = false;
+  bool isShowClearButton = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: SearchViewAppBarWidget(
+        child: SearchFieldWidget(
+          controller: searchEditingController,
+          isShowClearButton: isShowClearButton,
+          onChanged: (value) {
+            setState(() {
+              isShowClearButton = value.isNotEmpty;
+              if (value.isEmpty) {
+                isShowDataView = false;
+              }
+            });
+          },
+          onSubmit: (value) => onSearchSubmitted(value),
+          onClear: () {
+            setState(() {
+              searchEditingController.clear();
+              isShowDataView = false;
+            });
+          },
+        ),
+      ),
+      body: isShowDataView
+          ? SearchDataSectionView()
+          : Container(
+              padding: EdgeInsets.all(AppDimens.marginCardMedium2),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const TextViewWidget("Recent Searches"),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () => {},
+                        child: const TextViewWidget(
+                          "Clear All",
+                          textColor: AppColors.secondaryTextColor,
+                          textSize: AppDimens.textMedium,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: AppDimens.marginMedium,
+                  ),
+                  Wrap(
+                    direction: Axis.horizontal,
+                    children: ["Mobile", "PUBG", "Stream"]
+                        .map(
+                          (item) => GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                searchEditingController.value =
+                                    searchEditingController.value.copyWith(
+                                  text: item,
+                                  selection: TextSelection(
+                                      baseOffset: item.length,
+                                      extentOffset: item.length),
+                                  composing: TextRange.empty,
+                                );
+                                onSearchSubmitted(item);
+                              });
+                            },
+                            child: Container(
+                              padding:
+                                  const EdgeInsets.all(AppDimens.marginMedium),
+                              margin:
+                                  const EdgeInsets.all(AppDimens.marginSmall),
+                              decoration: const BoxDecoration(
+                                color: AppColors.secondaryColor,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(AppDimens.marginMedium),
+                                ),
+                              ),
+                              child: TextViewWidget(
+                                item,
+                                textSize: AppDimens.textMedium,
+                              ),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ],
+              ),
+            ),
+    );
+  }
+
+  onSearchSubmitted(String value) {
+    setState(() {
+      isShowDataView = true;
+    });
+  }
+}
+
+class SearchDataSectionView extends StatefulWidget {
+  const SearchDataSectionView({
+    super.key,
+  });
+
+  @override
+  State<SearchDataSectionView> createState() => _SearchDataSectionViewState();
+}
+
+class _SearchDataSectionViewState extends State<SearchDataSectionView> {
+  String? _selectedLanguage;
+
+  final List<String> _languages = ['Gift Cards', 'Top-Up'];
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      slivers: [
+        SliverPersistentHeader(
+          delegate: SectionHeaderDelegate(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: AppDimens.marginCardMedium2),
+              child: Row(
+                children: _languages
+                    .map(
+                      (language) => Padding(
+                        padding: const EdgeInsets.only(
+                            right: AppDimens.marginCardMedium),
+                        child: Theme(
+                          data: ThemeData().copyWith(),
+                          child: ChoiceChip(
+                            backgroundColor: AppColors.secondaryColor,
+                            selectedColor: AppColors.choiceChipSelectedColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                AppDimens.marginCardMedium2,
+                              ),
+                            ),
+                            label: TextViewWidget(
+                              language,
+                              fontWeight: FontWeight.w600,
+                              textSize: AppDimens.textMedium,
+                              textColor: (_selectedLanguage == language)
+                                  ? AppColors.secondaryButtonColor
+                                  : AppColors.primaryTextColor,
+                            ),
+                            selected: _selectedLanguage == language,
+                            onSelected: (selected) {
+                              if (selected) {
+                                setState(() {
+                                  _selectedLanguage = language;
+                                });
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ),
+          ),
+          pinned: true,
+        ),
+        SliverToBoxAdapter(child: SizedBox(height: AppDimens.marginMedium2,),),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) {
+              return Container(
+                padding: EdgeInsets.only(left: AppDimens.marginCardMedium2, right: AppDimens.marginCardMedium2, bottom: AppDimens.marginLarge ),
+                child: Row(
+                  children: [ 
+                    Container(
+                      width: 48,
+                      height: 48,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.circular(AppDimens.marginMedium),
+                        color: AppColors.secondaryColor,
+                        image: DecorationImage(
+                            image: AssetImage(
+                              gameCardDummyList[index].imageUrl,
+                            ),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                    SizedBox(width: AppDimens.marginMedium,),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextViewWidget("${gameCardDummyList[index].name}", fontWeight: FontWeight.w600, textSize: AppDimens.textMedium,),
+                          SizedBox(height: AppDimens.marginSmall,),
+                          TextViewWidget("Global", textSize: AppDimens.textMedium, textColor: AppColors.secondaryTextColor,),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
+            childCount: gameCardDummyList.length,
+          ),
+        ) 
+      ],
+    );
+  }
+}
+
+class SearchViewAppBarWidget extends StatelessWidget
+    implements PreferredSizeWidget {
+  final Widget child;
+
+  const SearchViewAppBarWidget({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(72.0),
+      child: AppBar(
+        surfaceTintColor: Colors.transparent,
+        toolbarHeight: 72,
+        centerTitle: true,
+        leading: ModalRoute.of(context)?.canPop == true
+            ? Center(
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back,
+                  ),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              )
+            : null,
+        title: child,
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(72.0);
+}
+
+class SectionHeaderDelegate extends SliverPersistentHeaderDelegate {
+  final Widget child;
+  final double height;
+
+  SectionHeaderDelegate({required this.child, this.height = 50});
+
+  @override
+  Widget build(context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      color: AppColors.primaryColor,
+      alignment: Alignment.center,
+      child: child,
+    );
+  }
+
+  @override
+  double get maxExtent => height;
+
+  @override
+  double get minExtent => height;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => false;
+}

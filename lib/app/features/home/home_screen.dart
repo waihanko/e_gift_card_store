@@ -50,13 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         margin: const EdgeInsets.symmetric(
                             horizontal: AppDimens.marginCardMedium2),
                         height: 48,
-                        decoration: BoxDecoration(
-                          color: AppColors.secondaryColor,
-                          borderRadius:
-                              BorderRadius.circular(AppDimens.marginXLarge),
-                        ),
                         child: OutlinedButton(
-                          child:   const Stack(
+                          child: const Stack(
                             children: [
                               Positioned(
                                 top: 0,
@@ -67,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Center(child: TextViewWidget("Search"))
                             ],
                           ),
-                          onPressed: () {},
+                          onPressed: ()=> ScreenRoute.goToSearchScreen(context),
                         ),
 
 

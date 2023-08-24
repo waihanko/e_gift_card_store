@@ -16,5 +16,6 @@ abstract class AppColors {
   static const Color dimPurpleBgColor = Color(0x33963EE5);
   static const Color dimGreenBgColor = Color(0x3343F643);
   static const Color dimYellowBgColor = Color(0x33E3893B);
+  static const Color choiceChipSelectedColor = Color(0xFFFBE8E1);
 
 }

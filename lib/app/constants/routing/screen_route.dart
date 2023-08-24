@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../features/gift_card_item_list/gift_card_detail_screen.dart';
 import '../../features/gift_card_item_list/gift_card_item_list_screen.dart';
 import '../../features/gift_topup_item_list/gift_top_up_list_screen.dart';
+import '../../features/search/search_screen.dart';
 import '../dummy/top_up_card_dummy_list.dart';
 
 class ScreenRoute {
@@ -43,6 +44,15 @@ class ScreenRoute {
       context,
       MaterialPageRoute(
           builder: (context) => GiftTopUpItemListScreen(title: title)),
+    );
+  }
+
+  static goToSearchScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SearchScreen(),
+      ),
     );
   }
 }
