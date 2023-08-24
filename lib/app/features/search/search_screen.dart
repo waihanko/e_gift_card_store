@@ -6,6 +6,7 @@ import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../constants/routing/screen_route.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/search_field_widget.dart';
 import '../../widgets/special_deal_item_widget.dart';
@@ -186,41 +187,43 @@ class _SearchDataSectionViewState extends State<SearchDataSectionView> {
           ),
           pinned: true,
         ),
-        SliverToBoxAdapter(child: SizedBox(height: AppDimens.marginMedium2,),),
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (context, index) {
-              return Container(
-                padding: EdgeInsets.only(left: AppDimens.marginCardMedium2, right: AppDimens.marginCardMedium2, bottom: AppDimens.marginLarge ),
-                child: Row(
-                  children: [ 
-                    Container(
-                      width: 48,
-                      height: 48,
-                      decoration: BoxDecoration(
-                        borderRadius:
-                        BorderRadius.circular(AppDimens.marginMedium),
-                        color: AppColors.secondaryColor,
-                        image: DecorationImage(
-                            image: AssetImage(
-                              gameCardDummyList[index].imageUrl,
-                            ),
-                            fit: BoxFit.cover),
+              return InkWell(
+                onTap:()=> ScreenRoute.goToGiftCardDetailScreen(gameCardDummyList[index], context),
+                child: Container(
+                  padding: EdgeInsets.all( AppDimens.marginCardMedium2),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                          BorderRadius.circular(AppDimens.marginMedium),
+                          color: AppColors.secondaryColor,
+                          image: DecorationImage(
+                              image: AssetImage(
+                                gameCardDummyList[index].imageUrl,
+                              ),
+                              fit: BoxFit.cover),
+                        ),
                       ),
-                    ),
-                    SizedBox(width: AppDimens.marginMedium,),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextViewWidget("${gameCardDummyList[index].name}", fontWeight: FontWeight.w600, textSize: AppDimens.textMedium,),
-                          SizedBox(height: AppDimens.marginSmall,),
-                          TextViewWidget("Global", textSize: AppDimens.textMedium, textColor: AppColors.secondaryTextColor,),
-                        ],
-                      ),
-                    )
-                  ],
+                      SizedBox(width: AppDimens.marginMedium,),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextViewWidget("${gameCardDummyList[index].name}", fontWeight: FontWeight.w600, textSize: AppDimens.textMedium,),
+                            SizedBox(height: AppDimens .marginSmall,),
+                            TextViewWidget("Global", textSize: AppDimens.textMedium, textColor: AppColors.secondaryTextColor,),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               );
             },
