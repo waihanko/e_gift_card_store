@@ -5,15 +5,16 @@ import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../constants/dummy/categories_dummy.dart';
+import '../constants/dummy/vos/gift_card_category_vo.dart';
 
 class CategoriesDialog extends StatefulWidget {
   final String? title;
-  final List<GiftCardCatego> categoryList;
+  final List<GiftCardCategoryVo> categoryList;
 
   const CategoriesDialog({
     Key? key,
-    this.title, required this.categoryList ,
+    this.title,
+    required this.categoryList,
   }) : super(key: key);
 
   @override
@@ -56,7 +57,10 @@ class CategoriesDialogState extends State<CategoriesDialog> {
                       const SizedBox(
                         height: AppDimens.marginMedium2,
                       ),
-                      Container(height: 0.3, color: AppColors.primaryButtonColor,),
+                      Container(
+                        height: 0.3,
+                        color: AppColors.kGrey,
+                      ),
                       Container(
                         constraints: BoxConstraints(
                           minWidth: double.infinity,
@@ -66,16 +70,29 @@ class CategoriesDialogState extends State<CategoriesDialog> {
                           shrinkWrap: true,
                           itemBuilder: (context, index) => Material(
                             child: InkWell(
-                              onTap: ()=> print("Click $index"),
+                              onTap: () => print("Click $index"),
                               child: Container(
-                                padding: EdgeInsets.symmetric(vertical: AppDimens.marginCardMedium2, horizontal: AppDimens.marginMedium),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: AppDimens.marginCardMedium2,
+                                    horizontal: AppDimens.marginMedium),
                                 child: Row(
                                   children: [
-                                    SvgPicture.asset(widget.categoryList[index].iconLink, width: 20),
-                                    SizedBox(width: AppDimens.marginMedium,),
-                                    TextViewWidget(widget.categoryList[index].name, fontWeight: FontWeight.w500, textSize: AppDimens.textMedium,),
+                                    SvgPicture.asset(
+                                        widget.categoryList[index].iconLink,
+                                        width: 20),
+                                    SizedBox(
+                                      width: AppDimens.marginMedium,
+                                    ),
+                                    TextViewWidget(
+                                      widget.categoryList[index].name,
+                                      fontWeight: FontWeight.w500,
+                                      textSize: AppDimens.textMedium,
+                                    ),
                                     Spacer(),
-                                    TextViewWidget(widget.categoryList[index].totalNumber, textColor: AppColors.secondaryTextColor, textSize: AppDimens.textMedium),
+                                    TextViewWidget(
+                                        widget.categoryList[index].totalNumber,
+                                        textColor: AppColors.kTextColor,
+                                        textSize: AppDimens.textMedium),
                                   ],
                                 ),
                               ),
@@ -93,9 +110,9 @@ class CategoriesDialogState extends State<CategoriesDialog> {
               right: 0,
               top: 0,
               child: RoundedIconWidget(
-                icon: Icon(
+                icon: const Icon(
                   Icons.cancel_outlined,
-                  color: AppColors.primaryButtonColor,
+                  color: AppColors.kGrey,
                   size: 22,
                 ),
                 onClickIcon: () => Navigator.of(context).pop(),

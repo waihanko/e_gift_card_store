@@ -24,9 +24,9 @@ class _StickyTabBarWidgetState extends State<StickyTabBarWidget>
           child: ColoredBox(
             color: Colors.white,
             child: TabBar(
-                indicatorColor: AppColors.secondaryButtonColor,
+                indicatorColor: AppColors.kRed,
                 controller: tabController,
-                unselectedLabelColor: AppColors.secondaryTextColor,
+                unselectedLabelColor: AppColors.kTextColor,
                 dividerColor: Colors.white,
                 tabs: [
                   Tab(height: 48, text: "CARD",),

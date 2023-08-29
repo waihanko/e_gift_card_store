@@ -13,7 +13,7 @@ class PlatformItemSectionView extends StatelessWidget {
     return HomeScreenHorizontalListSectionView(
       itemList: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: newsAndPromotionList.reversed.map((item) =>  Container(
+          children: newsAndPromotionDummyList.reversed.map((item) =>  Container(
             width: 240,
             margin: EdgeInsets.only(right: AppDimens.marginMedium2),
             child: PlatformItemWidget(giftCardItemVo: item),

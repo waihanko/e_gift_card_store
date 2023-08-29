@@ -20,7 +20,7 @@ class UserReviewListItem extends StatelessWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-                color: AppColors.secondaryColor, shape: BoxShape.circle),
+                color: AppColors.kSecondary, shape: BoxShape.circle),
           ),
           SizedBox(
             width: AppDimens.marginCardMedium,
@@ -46,7 +46,7 @@ class UserReviewListItem extends StatelessWidget {
                             "12/2/2023",
                             fontWeight: FontWeight.w400,
                             textSize: AppDimens.textSmall,
-                            textColor: AppColors.secondaryTextColor,
+                            textColor: AppColors.kTextColor,
                           ),
                         ],
                       ),
@@ -60,27 +60,27 @@ class UserReviewListItem extends StatelessWidget {
                             Icon(
                               Icons.star,
                               size: 16,
-                              color: AppColors.secondaryButtonColor,
+                              color: AppColors.kRed,
                             ),
                             Icon(
                               Icons.star,
                               size: 16,
-                              color: AppColors.secondaryButtonColor,
+                              color: AppColors.kRed,
                             ),
                             Icon(
                               Icons.star,
                               size: 16,
-                              color: AppColors.secondaryButtonColor,
+                              color: AppColors.kRed,
                             ),
                             Icon(
                               Icons.star,
                               size: 16,
-                              color: AppColors.secondaryButtonColor,
+                              color: AppColors.kRed,
                             ),
                             Icon(
                               Icons.star,
                               size: 16,
-                              color: AppColors.secondaryButtonColor,
+                              color: AppColors.kRed,
                             ),
                           ],
                         ),

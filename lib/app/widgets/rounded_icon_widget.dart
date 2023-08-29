@@ -13,9 +13,9 @@ class RoundedIconWidget extends StatelessWidget {
   const RoundedIconWidget({
     Key? key,
     required this.icon,
-    this.backgroundColor = AppColors.secondaryColor,
-    this.splashColor = AppColors.primaryColor,
-    this.highlightColor = AppColors.primaryColor,
+    this.backgroundColor = AppColors.kSecondary,
+    this.splashColor = AppColors.kPrimary,
+    this.highlightColor = AppColors.kPrimary,
     this.contentPadding = 12.0,
     this.onClickIcon,
   }) : super(key: key);

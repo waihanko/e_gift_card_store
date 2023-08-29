@@ -5,6 +5,7 @@ import 'package:e_gift_card_store/app/widgets/rounded_icon_widget.dart';
 import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/dummy/dummy.dart';
 import '../../constants/resources/app_colors.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -18,7 +19,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.screenBgColor,
+      backgroundColor: BackgroundColors.kWhite,
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
@@ -30,7 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Container(
                     decoration: const BoxDecoration(
-                      color: AppColors.secondaryColor,
+                      color: AppColors.kSecondary,
                     ),
                     child: Center(
                       child: Padding(
@@ -54,7 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   TextViewWidget(
                                     "WAIHANKO.DEV@GMAIL.COM",
-                                    textColor: AppColors.primaryTextColor,
+                                    textColor: AppColors.kDark,
                                   ),
                                 ],
                               ),
@@ -88,7 +89,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Container(
                       height: 14,
                       decoration: const BoxDecoration(
-                        color: AppColors.primaryColor,
+                        color: AppColors.kPrimary,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(AppDimens.marginXLarge),
                           topRight: Radius.circular(AppDimens.marginXLarge),
@@ -104,7 +105,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               delegate: SliverChildListDelegate.fixed(
             [
               Container(
-                color: AppColors.primaryColor,
+                color: AppColors.kPrimary,
                 child: Column(
                   children: [
                     Padding(
@@ -113,7 +114,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           vertical: AppDimens.marginSmall),
                       child: Row(
                         children: [
-                          Icon(Icons.list_alt_rounded, size: 18 ,),
+                          Icon(
+                            Icons.list_alt_rounded,
+                            size: 18,
+                          ),
                           SizedBox(
                             width: AppDimens.marginCardMedium,
                           ),
@@ -132,37 +136,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Container(
                       height: 0.1,
-                      color: AppColors.iconColor,
+                      color: AppColors.kDark,
                     ),
                     SizedBox(
                       height: AppDimens.marginCardMedium,
                     ),
                     Row(
-                      children:
-                          ["Wait Send", "Sending", "Completed", "Refunded"]
-                              .map(
-                                (item) => Expanded(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      TextViewWidget(
-                                        "${Random().nextInt(100)}",
-                                        fontWeight: FontWeight.bold,
-                                        textSize: AppDimens.textHeading1X,
-                                      ),
-                                      const SizedBox(
-                                        height: AppDimens.marginMedium,
-                                      ),
-                                      TextViewWidget(
-                                        item,
-                                        textSize: AppDimens.textSmall,
-                                        textColor: AppColors.secondaryTextColor,
-                                      ),
-                                    ],
+                      children: orderStatus
+                          .map(
+                            (item) => Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  TextViewWidget(
+                                    "${Random().nextInt(100)}",
+                                    fontWeight: FontWeight.bold,
+                                    textSize: AppDimens.textHeading1X,
                                   ),
-                                ),
-                              )
-                              .toList(),
+                                  const SizedBox(
+                                    height: AppDimens.marginMedium,
+                                  ),
+                                  TextViewWidget(
+                                    item,
+                                    textSize: AppDimens.textSmall,
+                                    textColor: AppColors.kTextColor,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                          .toList(),
                     ),
                     const SizedBox(
                       height: AppDimens.marginCardMedium2,
@@ -174,7 +177,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: AppDimens.marginCardMedium,
               ),
               Container(
-                color: AppColors.primaryColor,
+                color: AppColors.kPrimary,
                 padding:
                     const EdgeInsets.symmetric(vertical: AppDimens.marginSmall),
                 child: Column(
@@ -199,7 +202,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: AppDimens.marginCardMedium,
               ),
               Container(
-                color: AppColors.primaryColor,
+                color: AppColors.kPrimary,
                 padding:
                     const EdgeInsets.symmetric(vertical: AppDimens.marginSmall),
                 child: Column(
@@ -216,7 +219,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: AppDimens.marginCardMedium,
               ),
               Container(
-                color: AppColors.primaryColor,
+                color: AppColors.kPrimary,
                 padding:
                     const EdgeInsets.symmetric(vertical: AppDimens.marginSmall),
                 child: const ProfileMenuListItem(
@@ -253,7 +256,10 @@ class ProfileMenuListItem extends StatelessWidget {
           vertical: AppDimens.marginCardMedium2),
       child: Row(
         children: [
-          Icon(iconName, size: 18,),
+          Icon(
+            iconName,
+            size: 18,
+          ),
           SizedBox(
             width: AppDimens.marginCardMedium,
           ),

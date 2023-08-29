@@ -21,7 +21,7 @@ class TextViewWidget extends StatelessWidget {
     Key? key,
     this.textSize = AppDimens.textRegular,
     this.fontWeight = FontWeight.normal,
-    this.textColor = AppColors.primaryTextColor,
+    this.textColor = AppColors.kDark,
     this.textAlign = TextAlign.start,
     this.letterSpacing = 0.0,
     this.textOverflow = TextOverflow.ellipsis,

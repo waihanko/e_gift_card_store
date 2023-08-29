@@ -1,7 +1,6 @@
 import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
-
-import '../constants/dummy/top_up_card_dummy_list.dart';
+import '../constants/dummy/vos/gift_card_item_vo.dart';
 import '../constants/resources/app_colors.dart';
 import '../constants/resources/app_dimens.dart';
 
@@ -24,7 +23,7 @@ class NewsAndPromotionItemWidget extends StatelessWidget {
           height: 114,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppDimens.marginCardMedium),
-            color: AppColors.secondaryColor,
+            color: AppColors.kSecondary,
             image: DecorationImage(
               image: AssetImage(giftCardItemVo.imageUrl),
               fit: BoxFit.cover,
