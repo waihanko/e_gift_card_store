@@ -1,9 +1,6 @@
-import 'package:e_gift_card_store/app/constants/dummy/game_card_dummy_list.dart';
 import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
-
-import '../constants/dummy/top_up_card_dummy_list.dart';
-import '../constants/resources/app_colors.dart';
+import '../constants/dummy/vos/gift_card_item_vo.dart';
 import '../constants/resources/app_dimens.dart';
 
 class GameCardItemWidget extends StatelessWidget {

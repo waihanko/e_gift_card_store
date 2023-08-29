@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'app/constants/resources/app_colors.dart';
-import 'app/features/home/home_screen.dart';
-import 'app/features/main_home_screen.dart';
+ import 'app/features/main_home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,45 +19,48 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: const ColorScheme.dark().copyWith(
-          background: AppColors.primaryColor,
-          secondary: AppColors.primaryButtonColor,
+        colorScheme: const ColorScheme.light().copyWith(
+          background: AppColors.kPrimary,
+          secondary: AppColors.kGrey,
+          onSecondary: AppColors.kPrimary,
+          outline: AppColors.kPrimary,
+        ),
+        bottomSheetTheme: BottomSheetThemeData().copyWith(
+          surfaceTintColor: AppColors.kPrimary,
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle().copyWith(
-            backgroundColor: MaterialStateProperty.all<Color>(  AppColors.secondaryColor),
-            iconColor:MaterialStateProperty.all<Color>(  AppColors.iconColor),
-          )
+            backgroundColor:
+                MaterialStateProperty.all<Color>(AppColors.kSecondary),
+            iconColor: MaterialStateProperty.all<Color>(AppColors.kDark),
+          ),
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData()
             .copyWith(
-                backgroundColor: AppColors.primaryButtonColor,
+                backgroundColor: AppColors.kGrey,
                 foregroundColor: Colors.white),
         iconTheme: IconThemeData().copyWith(
-          color: AppColors.iconColor,
+          color: AppColors.kDark,
         ),
         appBarTheme: const AppBarTheme().copyWith(
-            color: AppColors.primaryColor,
+            color: AppColors.kPrimary,
             iconTheme: IconThemeData().copyWith(
-              color: AppColors.iconColor,
+              color: AppColors.kDark,
             )),
         dialogTheme: DialogTheme().copyWith(
-            iconColor: AppColors.primaryColor,
+            iconColor: AppColors.kPrimary,
             contentTextStyle:
-                TextStyle().copyWith(color: AppColors.primaryColor)),
+                TextStyle().copyWith(color: AppColors.kPrimary)),
         tabBarTheme: TabBarTheme(
-          labelColor: AppColors.secondaryButtonColor,
-          labelStyle: GoogleFonts.manrope(
-            fontSize: AppDimens.textMedium,
-            fontWeight: FontWeight.w600,
-            color: AppColors.secondaryButtonColor
-          ),
-          unselectedLabelStyle:  GoogleFonts.manrope(
-            fontSize: AppDimens.textMedium,
-              fontWeight: FontWeight.w600,
-              color: AppColors.primaryColor
-        )
-        ),
+            labelColor: AppColors.kRed,
+            labelStyle: GoogleFonts.manrope(
+                fontSize: AppDimens.textMedium,
+                fontWeight: FontWeight.w600,
+                color: AppColors.kRed),
+            unselectedLabelStyle: GoogleFonts.manrope(
+                fontSize: AppDimens.textMedium,
+                fontWeight: FontWeight.w600,
+                color: AppColors.kPrimary)),
         useMaterial3: true,
       ),
       home: const MainHomeScreen(),

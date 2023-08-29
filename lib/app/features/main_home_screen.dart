@@ -19,38 +19,37 @@ class MainHomeScreen extends StatefulWidget {
 
 class _MainHomeScreenState extends State<MainHomeScreen> {
   int currentSelectedIndex = 0;
-  List<Widget> screens=[
+  List<Widget> screens = [
     HomeScreen(),
     NotificationScreen(),
     ItemCategoryScreen(),
     ShoppingCartScreen(),
     ProfileScreen(),
   ];
+
   @override
   void initState() {}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-        bottomNavigationBar: getBottomNavStyle2(),
+      bottomNavigationBar: getBottomNavStyle2(),
       body: screens[currentSelectedIndex],
     );
   }
 
-  getBottomNavStyle1(){
+  getBottomNavStyle1() {
     return SnakeNavigationBar.color(
       elevation: 2,
       behaviour: SnakeBarBehaviour.floating,
       padding: const EdgeInsets.all(AppDimens.marginCardMedium),
-      snakeViewColor: AppColors.secondaryButtonColor,
-      selectedItemColor: AppColors.primaryColor,
-      unselectedItemColor: AppColors.iconColor,
+      snakeViewColor: AppColors.kRed,
+      selectedItemColor: AppColors.kPrimary,
+      unselectedItemColor: AppColors.kDark,
       currentIndex: currentSelectedIndex,
       height: 58,
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.kPrimary,
       snakeShape: SnakeShape.circle,
-
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(100)),
       ),
@@ -66,20 +65,22 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           activeIcon: Icon(Icons.notifications_rounded),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.ac_unit) ,
-          activeIcon: Icon(Icons.ac_unit),),
+          icon: Icon(Icons.ac_unit),
+          activeIcon: Icon(Icons.ac_unit),
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.shopping_cart_outlined),
           activeIcon: Icon(Icons.shopping_cart_rounded),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.account_circle_outlined),
-          activeIcon: Icon(Icons.account_circle_rounded),),
+          activeIcon: Icon(Icons.account_circle_rounded),
+        ),
       ],
     );
   }
 
-  getBottomNavStyle2(){
+  getBottomNavStyle2() {
     return BottomNavigationBar(
       currentIndex: currentSelectedIndex,
       enableFeedback: false,
@@ -92,43 +93,101 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       }),
       items: [
         BottomNavigationBarItem(
-          icon: RoundedIconWidget(icon: Icon(Icons.home_outlined, color: Colors.black,), backgroundColor: Colors.transparent,
-              onClickIcon: ()=>{setState(() => currentSelectedIndex = 0),}
+          icon: RoundedIconWidget(
+              icon: Icon(
+                Icons.home_outlined,
+                color: Colors.black,
+              ),
+              backgroundColor: Colors.transparent,
+              onClickIcon: () => {
+                    setState(() => currentSelectedIndex = 0),
+                  }),
+          activeIcon: RoundedIconWidget(
+            icon: Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
+            backgroundColor: AppColors.kRed,
           ),
-          activeIcon: RoundedIconWidget(icon: Icon(Icons.home, color: Colors.white,),  backgroundColor: AppColors.secondaryButtonColor,),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: RoundedIconWidget(icon: Icon(Icons.notifications_none_outlined, color: Colors.black,), backgroundColor: Colors.transparent,
-              onClickIcon: ()=>{setState(() => currentSelectedIndex = 1),}
+          icon: RoundedIconWidget(
+              icon: Icon(
+                Icons.notifications_none_outlined,
+                color: Colors.black,
+              ),
+              backgroundColor: Colors.transparent,
+              onClickIcon: () => {
+                    setState(() => currentSelectedIndex = 1),
+                  }),
+          activeIcon: RoundedIconWidget(
+            icon: Icon(
+              Icons.notifications_rounded,
+              color: Colors.white,
+            ),
+            backgroundColor: AppColors.kRed,
           ),
-          activeIcon: RoundedIconWidget(icon: Icon(Icons.notifications_rounded, color: Colors.white,),  backgroundColor:  AppColors.secondaryButtonColor,),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: RoundedIconWidget(icon: Icon(Icons.ac_unit, color: Colors.black,), backgroundColor: Colors.transparent,
-              onClickIcon: ()=>{setState(() => currentSelectedIndex = 2),}
+          icon: RoundedIconWidget(
+              icon: Icon(
+                Icons.ac_unit,
+                color: Colors.black,
+              ),
+              backgroundColor: Colors.transparent,
+              onClickIcon: () => {
+                    setState(() => currentSelectedIndex = 2),
+                  }),
+          activeIcon: RoundedIconWidget(
+            icon: Icon(
+              Icons.ac_unit,
+              color: Colors.white,
+            ),
+            backgroundColor: AppColors.kRed,
           ),
-          activeIcon: RoundedIconWidget(icon: Icon(Icons.ac_unit, color: Colors.white,),  backgroundColor:  AppColors.secondaryButtonColor,),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: RoundedIconWidget(icon: Icon(Icons.shopping_cart_outlined, color: Colors.black,), backgroundColor: Colors.transparent,
-              onClickIcon: ()=>{setState(() => currentSelectedIndex = 3),}
+          icon: RoundedIconWidget(
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.black,
+              ),
+              backgroundColor: Colors.transparent,
+              onClickIcon: () => {
+                    setState(() => currentSelectedIndex = 3),
+                  }),
+          activeIcon: RoundedIconWidget(
+            icon: Icon(
+              Icons.shopping_cart_rounded,
+              color: Colors.white,
+            ),
+            backgroundColor: AppColors.kRed,
           ),
-          activeIcon: RoundedIconWidget(icon: Icon(Icons.shopping_cart_rounded, color: Colors.white,),  backgroundColor:  AppColors.secondaryButtonColor,),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: RoundedIconWidget(icon: Icon(Icons.account_circle_outlined, color: Colors.black,), backgroundColor: Colors.transparent,
-              onClickIcon: ()=>{setState(() => currentSelectedIndex = 4),}
+          icon: RoundedIconWidget(
+              icon: Icon(
+                Icons.account_circle_outlined,
+                color: Colors.black,
+              ),
+              backgroundColor: Colors.transparent,
+              onClickIcon: () => {
+                    setState(() => currentSelectedIndex = 4),
+                  }),
+          activeIcon: RoundedIconWidget(
+            icon: Icon(
+              Icons.account_circle_rounded,
+              color: Colors.white,
+            ),
+            backgroundColor: AppColors.kRed,
           ),
-          activeIcon: RoundedIconWidget(icon: Icon(Icons.account_circle_rounded, color: Colors.white,),  backgroundColor:  AppColors.secondaryButtonColor,),
           label: '',
         ),
       ],
     );
   }
-
 }
-

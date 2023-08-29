@@ -1,11 +1,9 @@
-import 'package:e_gift_card_store/app/constants/dummy/game_card_dummy_list.dart';
 import 'package:e_gift_card_store/app/constants/resources/app_colors.dart';
 import 'package:e_gift_card_store/app/constants/resources/app_dimens.dart';
-import 'package:e_gift_card_store/app/widgets/game_card_item_widget.dart';
 import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
+import '../../constants/dummy/dummy.dart';
 import '../../constants/routing/screen_route.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/search_field_widget.dart';
@@ -62,7 +60,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         onTap: () => {},
                         child: const TextViewWidget(
                           "Clear All",
-                          textColor: AppColors.secondaryTextColor,
+                          textColor: AppColors.kTextColor,
                           textSize: AppDimens.textMedium,
                         ),
                       ),
@@ -95,7 +93,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               margin:
                                   const EdgeInsets.all(AppDimens.marginSmall),
                               decoration: const BoxDecoration(
-                                color: AppColors.secondaryColor,
+                                color: AppColors.kSecondary,
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(AppDimens.marginMedium),
                                 ),
@@ -154,8 +152,8 @@ class _SearchDataSectionViewState extends State<SearchDataSectionView> {
                         child: Theme(
                           data: ThemeData().copyWith(),
                           child: ChoiceChip(
-                            backgroundColor: AppColors.secondaryColor,
-                            selectedColor: AppColors.choiceChipSelectedColor,
+                            backgroundColor: AppColors.kSecondary,
+                            selectedColor: AppColors.kLightRed,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(
                                 AppDimens.marginCardMedium2,
@@ -166,8 +164,8 @@ class _SearchDataSectionViewState extends State<SearchDataSectionView> {
                               fontWeight: FontWeight.w600,
                               textSize: AppDimens.textMedium,
                               textColor: (_selectedLanguage == language)
-                                  ? AppColors.secondaryButtonColor
-                                  : AppColors.primaryTextColor,
+                                  ? AppColors.kRed
+                                  : AppColors.kDark,
                             ),
                             selected: _selectedLanguage == language,
                             onSelected: (selected) {
@@ -202,7 +200,7 @@ class _SearchDataSectionViewState extends State<SearchDataSectionView> {
                         decoration: BoxDecoration(
                           borderRadius:
                           BorderRadius.circular(AppDimens.marginMedium),
-                          color: AppColors.secondaryColor,
+                          color: AppColors.kSecondary,
                           image: DecorationImage(
                               image: AssetImage(
                                 gameCardDummyList[index].imageUrl,
@@ -218,7 +216,7 @@ class _SearchDataSectionViewState extends State<SearchDataSectionView> {
                           children: [
                             TextViewWidget("${gameCardDummyList[index].name}", fontWeight: FontWeight.w600, textSize: AppDimens.textMedium,),
                             SizedBox(height: AppDimens .marginSmall,),
-                            TextViewWidget("Global", textSize: AppDimens.textMedium, textColor: AppColors.secondaryTextColor,),
+                            TextViewWidget("Global", textSize: AppDimens.textMedium, textColor: AppColors.kTextColor,),
                           ],
                         ),
                       )
@@ -277,7 +275,7 @@ class SectionHeaderDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: AppColors.primaryColor,
+      color: AppColors.kPrimary,
       alignment: Alignment.center,
       child: child,
     );

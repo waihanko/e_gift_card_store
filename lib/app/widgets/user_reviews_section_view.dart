@@ -1,9 +1,11 @@
+import 'package:e_gift_card_store/app/constants/routing/screen_route.dart';
 import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/dummy/dummy.dart';
 import '../constants/resources/app_colors.dart';
 import '../constants/resources/app_dimens.dart';
-import '../features/gift_card_item_list/gift_card_detail_screen.dart';
+import 'list_item/user_review_list_item.dart';
 
 class UserReviewSectionView extends StatelessWidget {
   const UserReviewSectionView({
@@ -38,7 +40,7 @@ class UserReviewSectionView extends StatelessWidget {
                     "Reviews",
                     fontWeight: FontWeight.w500,
                     textSize: AppDimens.textSmall,
-                    textColor: AppColors.secondaryTextColor,
+                    textColor: AppColors.kTextColor,
                   ),
                 ],
               ),
@@ -47,7 +49,7 @@ class UserReviewSectionView extends StatelessWidget {
               ),
               Container(
                 width: 0.5,
-                color: AppColors.secondaryTextColor,
+                color: AppColors.kTextColor,
                 height: 30,
               ),
               SizedBox(
@@ -64,7 +66,7 @@ class UserReviewSectionView extends StatelessWidget {
                     "Reviews",
                     fontWeight: FontWeight.w500,
                     textSize: AppDimens.textSmall,
-                    textColor: AppColors.secondaryTextColor,
+                    textColor: AppColors.kTextColor,
                   ),
                 ],
               )
@@ -78,23 +80,26 @@ class UserReviewSectionView extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemBuilder: (context, index) =>
-            const UserReviewListItem(),
-            itemCount: 8,
+             UserReviewListItem(item: reviewDummyList[index]),
+            itemCount: reviewDummyList.length,
           ),
-          const Align(
+           Align(
             alignment: Alignment.bottomRight,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextViewWidget(
-                  "View More",
-                  textSize: AppDimens.textMedium,
-                ),
-                Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: 14,
-                )
-              ],
+            child: GestureDetector(
+              onTap: ()=> ScreenRoute.goToReviewListScreen(context),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextViewWidget(
+                    "View More",
+                    textSize: AppDimens.textMedium,
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 14,
+                  )
+                ],
+              ),
             ),
           )
         ],

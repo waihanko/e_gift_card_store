@@ -55,7 +55,7 @@ class CustomTextField extends StatelessWidget {
         obscureText: isPassword,
         maxLines: maxLine,
         keyboardType: textInputType,
-        cursorColor: AppColors.primaryColor,
+        cursorColor: AppColors.kPrimary,
         textCapitalization: TextCapitalization.sentences,
         style: const TextStyle(
           fontSize: AppDimens.textRegular2X,
@@ -91,7 +91,7 @@ InputDecoration getTextFieldDecoration(
     hintStyle: const TextStyle(
       fontSize: AppDimens.textRegular2X,
       fontWeight: FontWeight.w400,
-      color: AppColors.secondaryTextColor,
+      color: AppColors.kTextColor,
     ),
     enabledBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(
@@ -99,7 +99,7 @@ InputDecoration getTextFieldDecoration(
           AppDimens.marginMedium,
         ),
       ),
-      borderSide: BorderSide(color: AppColors.secondaryTextColor, width: 1.5),
+      borderSide: BorderSide(color: AppColors.kTextColor, width: 1.5),
     ),
     focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(
@@ -108,7 +108,7 @@ InputDecoration getTextFieldDecoration(
         ),
       ),
       borderSide: BorderSide(
-        color: AppColors.secondaryTextColor,
+        color: AppColors.kTextColor,
         width: 1.5,
       ),
     ),
@@ -119,7 +119,7 @@ InputDecoration getTextFieldDecoration(
         ),
       ),
       borderSide: BorderSide(
-        color: AppColors.secondaryTextColor,
+        color: AppColors.kTextColor,
         width: 0.2,
       ),
     ),

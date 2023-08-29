@@ -20,7 +20,7 @@ class ChooseCategoriesStickyWidget extends StatelessWidget {
     return SliverPersistentHeader(
       delegate: StickyHeaderCategoDelegate(
           child: Container(
-            color: AppColors.primaryColor,
+            color: AppColors.kPrimary,
             child: Align(
               child: Material(
                 child: InkWell(

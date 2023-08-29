@@ -14,7 +14,7 @@ class NewsAndPromotionsSectionView extends StatelessWidget {
       title:   "News & Promotions",
       itemList: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: newsAndPromotionList.map((item) =>  Container(
+        children: newsAndPromotionDummyList.map((item) =>  Container(
           margin: EdgeInsets.only(right: AppDimens.marginMedium2),
           width: 240,
           child: NewsAndPromotionItemWidget(giftCardItemVo: item),

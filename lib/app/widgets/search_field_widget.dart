@@ -69,7 +69,7 @@ class SearchFieldWidget extends StatelessWidget {
                 onClickIcon: ()=> onClear?.call(),
                 icon: const Icon(
                   Icons.cancel,
-                  color: AppColors.primaryButtonColor,
+                  color: AppColors.kGrey,
                 ),
                 contentPadding: 4,
                 backgroundColor: Colors.transparent,
@@ -87,7 +87,7 @@ class SearchFieldWidget extends StatelessWidget {
                 constraints: const BoxConstraints(),
                 //removes empty spaces around of icon
                 highlightElevation: 0,
-                fillColor: AppColors.secondaryButtonColor,
+                fillColor: AppColors.kRed,
                 padding: EdgeInsets.symmetric(
                     horizontal: AppDimens.marginCardMedium,
                     vertical: AppDimens.marginSmall),
@@ -113,7 +113,7 @@ class SearchFieldWidget extends StatelessWidget {
           hintStyle: GoogleFonts.manrope(
             fontSize: AppDimens.textRegular,
             fontWeight: FontWeight.w400,
-            color: AppColors.primaryButtonColor,
+            color: AppColors.kGrey,
           ),
           enabledBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(
@@ -122,7 +122,7 @@ class SearchFieldWidget extends StatelessWidget {
               ),
             ),
             borderSide:
-                BorderSide(color: AppColors.primaryButtonColor, width: 0.5),
+                BorderSide(color: AppColors.kGrey, width: 0.5),
           ),
           focusedBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(
@@ -131,7 +131,7 @@ class SearchFieldWidget extends StatelessWidget {
               ),
             ),
             borderSide: BorderSide(
-              color: AppColors.primaryButtonColor,
+              color: AppColors.kGrey,
               width: 0.5,
             ),
           ),
@@ -142,7 +142,7 @@ class SearchFieldWidget extends StatelessWidget {
               ),
             ),
             borderSide: BorderSide(
-              color: AppColors.primaryButtonColor,
+              color: AppColors.kGrey,
               width: 0.5,
             ),
           ),

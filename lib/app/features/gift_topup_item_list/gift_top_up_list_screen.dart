@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../constants/dummy/categories_dummy.dart';
-import '../../constants/dummy/top_up_card_dummy_list.dart';
+import '../../constants/dummy/dummy.dart';
 import '../../constants/resources/app_dimens.dart';
 import '../../widgets/categories_dialog.dart';
 import '../../widgets/choose_categories_sticky_widget.dart';
@@ -67,7 +65,10 @@ Future<void> dialogBuilder(
   return showDialog<void>(
     context: context,
     builder: (BuildContext context) {
-      return CategoriesDialog(title: title, categoryList: gameTopUpCategoDummy);
+      return CategoriesDialog(
+        title: title,
+        categoryList: gameTopUpCategoDummy,
+      );
     },
   );
 }

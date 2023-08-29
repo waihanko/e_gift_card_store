@@ -1,9 +1,7 @@
 import 'package:e_gift_card_store/app/constants/dummy/dummy.dart';
-import 'package:e_gift_card_store/app/constants/dummy/game_card_dummy_list.dart';
 import 'package:e_gift_card_store/app/constants/routing/screen_route.dart';
 import 'package:e_gift_card_store/app/widgets/game_card_item_widget.dart';
 import 'package:flutter/material.dart';
-import '../../constants/dummy/categories_dummy.dart';
 import '../../constants/resources/app_dimens.dart';
 import '../../widgets/categories_dialog.dart';
 import '../../widgets/choose_categories_sticky_widget.dart';

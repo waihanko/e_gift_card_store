@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Stack(
                   children: [
-                    SectionViewBanner(),
+                    const SectionViewBanner(),
                     Positioned(
                       bottom: 0,
                       left: 0,
@@ -64,8 +64,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           onPressed: ()=> ScreenRoute.goToSearchScreen(context),
                         ),
-
-
                       ),
                     )
                   ],

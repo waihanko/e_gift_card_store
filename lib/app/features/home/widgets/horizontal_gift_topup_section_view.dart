@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/dummy/game_card_dummy_list.dart';
-import '../../../constants/dummy/top_up_card_dummy_list.dart';
+import '../../../constants/dummy/dummy.dart';
+import '../../../constants/dummy/vos/gift_card_item_vo.dart';
 import '../../../constants/resources/app_dimens.dart';
 import '../../../widgets/gift_top_up_item_widget.dart';
 import 'home_screen_horizontal_list_section_view.dart';

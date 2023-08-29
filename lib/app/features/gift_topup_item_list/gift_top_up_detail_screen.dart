@@ -5,7 +5,7 @@ import 'package:e_gift_card_store/app/widgets/user_reviews_section_view.dart';
 import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
 
-import '../../constants/dummy/top_up_card_dummy_list.dart';
+import '../../constants/dummy/vos/gift_card_item_vo.dart';
 import '../../constants/resources/app_colors.dart';
 import '../../constants/resources/app_dimens.dart';
 import '../../widgets/text_view_widget.dart';
@@ -44,7 +44,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
                 decoration: BoxDecoration(
                   image: const DecorationImage(
                       image: AssetImage(
-                        AppImages.bgItemDetail,
+                        AppAssets.bgItemDetail,
                       ),
                       fit: BoxFit.cover),
                   gradient: LinearGradient(
@@ -102,7 +102,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
                                     borderRadius: BorderRadius.circular(12),
                                     image: DecorationImage(
                                       image: AssetImage(
-                                        AppImages.myanmarFlag,
+                                        AppAssets.myanmarFlag,
                                       ),
                                       fit: BoxFit.cover,
                                     ),
@@ -153,7 +153,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
               child: Container(
                 height: 14,
                 decoration: const BoxDecoration(
-                  color: AppColors.primaryColor,
+                  color: AppColors.kPrimary,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(AppDimens.marginXLarge),
                     topRight: Radius.circular(AppDimens.marginXLarge),
@@ -186,7 +186,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
                           decoration: BoxDecoration(
                             borderRadius:
                                 BorderRadius.circular(AppDimens.marginMedium),
-                            color: AppColors.secondaryColor,
+                            color: AppColors.kSecondary,
                             image: DecorationImage(
                                 image: AssetImage(
                                   widget.item.imageUrl,
@@ -211,7 +211,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
                     ),
                     Container(
                       height: 0.1,
-                      color: AppColors.iconColor,
+                      color: AppColors.kDark,
                     ),
                     const SizedBox(
                       height: AppDimens.marginCardMedium,
@@ -228,7 +228,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
                           "US\$ 150",
                           fontWeight: FontWeight.w600,
                           textSize: AppDimens.textRegular2X,
-                          textColor: AppColors.secondaryButtonColor,
+                          textColor: AppColors.kRed,
                         ),
                       ],
                     ),
@@ -282,7 +282,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
               ),
               Container(
                 height: AppDimens.marginMedium,
-                color: AppColors.secondaryColor,
+                color: AppColors.kSecondary,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
@@ -314,7 +314,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
               ),
               Container(
                 height: AppDimens.marginMedium,
-                color: AppColors.secondaryColor,
+                color: AppColors.kSecondary,
               ),
             ],
           ),
@@ -348,7 +348,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
               ),
               Container(
                 height: AppDimens.marginMedium,
-                color: AppColors.secondaryColor,
+                color: AppColors.kSecondary,
               ),
             ],
           ),
@@ -358,7 +358,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
               UserReviewSectionView(),
               Container(
                 height: AppDimens.marginMedium,
-                color: AppColors.secondaryColor,
+                color: AppColors.kSecondary,
               ),
               SizedBox(
                 height: AppDimens.marginCardMedium2,

@@ -1,4 +1,4 @@
-abstract class AppImages {
+abstract class AppAssets {
   //svg file
   static const icEnglishFlag = "assets/images/english_flag.png";
   static const icMyanmarFlag = "assets/images/myanmar_flag.png";
@@ -25,4 +25,5 @@ abstract class AppImages {
   static const liveStreamingIcon = "assets/icons/live_streaming_icon.svg";
   static const bgItemDetail = "assets/images/bg_item_detail.png";
   static const myanmarFlag = "assets/images/myanmar_flag.png";
+  static const kProfilePic = 'assets/images/profile_image.jpg';
 }

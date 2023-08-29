@@ -39,7 +39,7 @@ class HomeScreenHorizontalListSectionView extends StatelessWidget {
                   ? RoundedIconWidget(
                       icon: const Icon(
                         Icons.navigate_next_rounded,
-                        color: AppColors.primaryButtonColor,
+                        color: AppColors.kGrey,
                       ),
                       backgroundColor: Colors.transparent,
                       contentPadding: 0,

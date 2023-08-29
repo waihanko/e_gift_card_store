@@ -1,7 +1,7 @@
-import 'package:e_gift_card_store/app/constants/dummy/game_card_dummy_list.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/dummy/top_up_card_dummy_list.dart';
+import '../../../constants/dummy/dummy.dart';
+import '../../../constants/dummy/vos/gift_card_item_vo.dart';
 import '../../../constants/resources/app_dimens.dart';
 import '../../../widgets/game_card_item_widget.dart';
 import 'home_screen_horizontal_list_section_view.dart';

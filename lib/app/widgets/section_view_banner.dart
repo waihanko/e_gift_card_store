@@ -29,7 +29,7 @@ class _SectionViewBannerState extends State<SectionViewBanner> {
               AppDimens.marginCardMedium2),
         child: Container(
           decoration: const BoxDecoration(
-            color: AppColors.secondaryColor,
+            color: AppColors.kSecondary,
           ),
           child: CarouselSlider(
             options: CarouselOptions(
@@ -38,7 +38,7 @@ class _SectionViewBannerState extends State<SectionViewBanner> {
               viewportFraction: 1,
               enlargeStrategy: CenterPageEnlargeStrategy.height,
             ),
-            items:bannerDummy
+            items:bannerDummyList
                 .map(
                   (bannerItem) => InkWell(
                     onTap: () => {},

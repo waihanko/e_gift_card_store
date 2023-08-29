@@ -12,6 +12,7 @@ import 'text_view_widget.dart';
 class ScrollableTabWidget extends StatefulWidget {
   final String title;
   final Widget header;
+  final Widget? bottomBar;
   final List<Widget> tabBarView;
   final List<String> tabs;
   late List<GlobalKey<State<StatefulWidget>>> dataKey;
@@ -20,12 +21,14 @@ class ScrollableTabWidget extends StatefulWidget {
     super.key,
     required this.title,
     required this.header,
+    this.bottomBar,
     required this.tabBarView,
     required this.tabs,
-  }):assert(tabs.length == tabBarView.length, "Tab bar  and Tab Bar View length must be same") {
+  }) : assert(tabs.length == tabBarView.length,
+            "Tab bar  and Tab Bar View length must be same") {
     dataKey = List.generate(
       tabs.length,
-          (index) => GlobalKey(),
+      (index) => GlobalKey(),
     );
   }
 
@@ -47,9 +50,9 @@ class _ScrollableTabWidgetStates extends State<ScrollableTabWidget> {
 
     List<double> heightOfWidget = widget.dataKey
         .mapIndexed((index, item) =>
-    ((item.currentContext?.findRenderObject() as RenderBox)
-        .size
-        .height))
+            ((item.currentContext?.findRenderObject() as RenderBox)
+                .size
+                .height))
         .toList();
 
     double previousValue = 0.0;
@@ -87,12 +90,12 @@ class _ScrollableTabWidgetStates extends State<ScrollableTabWidget> {
           extendBody: false,
           extendBodyBehindAppBar: true,
           appBar: AppBar(
-            backgroundColor: AppColors.primaryColor.withOpacity(opacity),
+            backgroundColor: AppColors.kPrimary.withOpacity(opacity),
             surfaceTintColor: Colors.transparent,
             bottomOpacity: opacity,
             centerTitle: true,
             iconTheme: IconThemeData(
-                color: opacity < 0.5 ? AppColors.primaryColor : Colors.black),
+                color: opacity < 0.5 ? AppColors.kPrimary : Colors.black),
             actions: const [
               RoundedIconWidget(
                 icon: Icon(
@@ -103,7 +106,7 @@ class _ScrollableTabWidgetStates extends State<ScrollableTabWidget> {
             ],
             title: TextViewWidget(
               widget.title,
-              textColor: AppColors.primaryTextColor.withOpacity(opacity),
+              textColor: AppColors.kDark.withOpacity(opacity),
               maxLines: 1,
               textSize: AppDimens.textMedium,
               fontWeight: FontWeight.bold,
@@ -111,8 +114,8 @@ class _ScrollableTabWidgetStates extends State<ScrollableTabWidget> {
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(28),
               child: TabBar(
-                  indicatorColor: AppColors.secondaryButtonColor,
-                  unselectedLabelColor: AppColors.secondaryTextColor,
+                  indicatorColor: AppColors.kRed,
+                  unselectedLabelColor: AppColors.kTextColor,
                   dividerColor: Colors.transparent,
                   isScrollable: true,
                   onTap: (index) {
@@ -125,37 +128,45 @@ class _ScrollableTabWidgetStates extends State<ScrollableTabWidget> {
                   tabs: widget.tabs
                       .map(
                         (e) => Tab(
-                      text: e,
-                    ),
-                  )
+                          text: e,
+                        ),
+                      )
                       .toList()),
             ),
           ),
-          body: CustomScrollView(
-            controller: _controller,
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              SliverAppBar(
-                toolbarHeight: toolBarHeight,
-                automaticallyImplyLeading: false,
-                stretch: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: widget.header,
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: widget.tabBarView
-                      .mapIndexed(
-                        (index, item) => SizedBox(
-                      key: widget.dataKey[index],
-                      child: item,
+          body: Stack(
+            children: [
+              CustomScrollView(
+                controller: _controller,
+                physics: const BouncingScrollPhysics(),
+                slivers: [
+                  SliverAppBar(
+                    toolbarHeight: toolBarHeight,
+                    automaticallyImplyLeading: false,
+                    stretch: true,
+                    flexibleSpace: FlexibleSpaceBar(
+                      background: widget.header,
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: widget.tabBarView
+                          .mapIndexed(
+                            (index, item) => SizedBox(
+                              key: widget.dataKey[index],
+                              child: item,
+                            ),
+                          )
+                          .toList(),
                     ),
                   )
-                      .toList(),
-                ),
-              )
+                ],
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: widget.bottomBar ?? SizedBox(),
+              ),
             ],
           ),
         );

@@ -1,7 +1,7 @@
 import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../constants/dummy/top_up_card_dummy_list.dart';
+import '../constants/dummy/vos/gift_card_item_vo.dart';
 import '../constants/resources/app_colors.dart';
 import '../constants/resources/app_dimens.dart';
 
@@ -21,7 +21,7 @@ class SpecialDealItemWidget extends StatelessWidget {
       width: MediaQuery.sizeOf(context).width * 0.7,
       decoration:  BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(AppDimens.marginMedium)),
-        color: AppColors.secondaryColor,
+        color: AppColors.kSecondary,
       ),
       margin: isFromHome
           ? const EdgeInsets.only(right: AppDimens.marginMedium2)
@@ -33,7 +33,7 @@ class SpecialDealItemWidget extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium),
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: item?.bgColor??[AppColors.secondaryColor, AppColors.secondaryColor,]
+                colors: item?.bgColor??[AppColors.kSecondary, AppColors.kSecondary,]
               ),
               borderRadius: BorderRadius.circular(AppDimens.marginMedium)
             ),
@@ -98,7 +98,7 @@ class SpecialDealItemWidget extends StatelessWidget {
                             AppDimens.marginSmall + AppDimens.marginExtraSmall,
                         vertical: AppDimens.marginExtraSmall),
                     decoration: BoxDecoration(
-                      color: AppColors.promoBgColor,
+                      color: AppColors.kGreen,
                       borderRadius: BorderRadius.circular(
                         AppDimens.marginMedium,
                       ),
@@ -108,7 +108,7 @@ class SpecialDealItemWidget extends StatelessWidget {
                       textSize: AppDimens.textSmall,
                       fontWeight: FontWeight.w900,
                       textAlign: TextAlign.right,
-                      textColor: AppColors.primaryColor,
+                      textColor: AppColors.kPrimary,
                     ),
                   ),
                 ),
