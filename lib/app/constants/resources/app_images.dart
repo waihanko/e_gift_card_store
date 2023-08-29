@@ -1,5 +1,16 @@
 abstract class AppAssets {
-  //svg file
+  //NavigationIcon
+  static const kHomeIcon = "assets/icons/home.svg";
+  static const kHomeActiveIcon = "assets/icons/home_active.svg";
+  static const kNotiIcon = "assets/icons/noti.svg";
+  static const kNotiActiveIcon = "assets/icons/noti_active.svg";
+  static const kCategoIcon = "assets/icons/category.svg";
+  static const kCategoActiveIcon = "assets/icons/category_active.svg";
+  static const kShoppingCartIcon = "assets/icons/shopping_cart.svg";
+  static const kShoppingCartActiveIcon = "assets/icons/shopping_cart_active.svg";
+  static const kProfileIcon = "assets/icons/user.svg";
+  static const kProfileActiveIcon = "assets/icons/user_active.svg";
+
   static const icEnglishFlag = "assets/images/english_flag.png";
   static const icMyanmarFlag = "assets/images/myanmar_flag.png";
   static const icChineseFlag = "assets/images/chinese_flag.png";

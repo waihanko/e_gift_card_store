@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../constants/dummy/dummy.dart';
 import '../constants/resources/app_colors.dart';
 import '../constants/resources/app_dimens.dart';
-import 'list_item/user_review_list_item.dart';
+import '../features/review/components/user_review_list_item.dart';
 
 class UserReviewSectionView extends StatelessWidget {
   const UserReviewSectionView({
@@ -55,10 +55,10 @@ class UserReviewSectionView extends StatelessWidget {
               SizedBox(
                 width: AppDimens.marginSmall,
               ),
-              Column(
+              const Column(
                 children: [
                   TextViewWidget(
-                    "4.5",
+                    "4.99",
                     textSize: AppDimens.textRegular,
                     fontWeight: FontWeight.w600,
                   ),

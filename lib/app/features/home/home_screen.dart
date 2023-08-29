@@ -25,7 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
     double screenHeight = MediaQuery.sizeOf(context).height * 0.5;
     return Scaffold(
       body: CustomScrollView(
-        // physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
             stretch: true,
@@ -75,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: ListView(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.zero,
               children: [
                 HomeMenuSectionView(),
                 SizedBox(

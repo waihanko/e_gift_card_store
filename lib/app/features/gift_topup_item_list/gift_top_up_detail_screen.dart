@@ -305,6 +305,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
                       lineHeight: 1.5,
                       textSize: AppDimens.textMedium,
                       fontWeight: FontWeight.w500,
+                      textColor: AppColors.kGrey,
                     ),
                     SizedBox(
                       height: AppDimens.marginCardMedium,

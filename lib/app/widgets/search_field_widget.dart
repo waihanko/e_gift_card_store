@@ -1,3 +1,5 @@
+import 'package:e_gift_card_store/app/widgets/buttons/custom_icon_button.dart';
+import 'package:e_gift_card_store/app/widgets/buttons/primary_button_widget.dart';
 import 'package:e_gift_card_store/app/widgets/rounded_icon_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -77,27 +79,9 @@ class SearchFieldWidget extends StatelessWidget {
               const SizedBox(
                 width: AppDimens.marginSmall,
               ),
-              RawMaterialButton(
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                onPressed: () => onSubmit?.call(controller.text),
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(AppDimens.marginMedium2)),
-                constraints: const BoxConstraints(),
-                //removes empty spaces around of icon
-                highlightElevation: 0,
-                fillColor: AppColors.kRed,
-                padding: EdgeInsets.symmetric(
-                    horizontal: AppDimens.marginCardMedium,
-                    vertical: AppDimens.marginSmall),
-                child: Icon(
-                  Icons.search_rounded,
-                  size: 24,
-                ),
-              ),
+              CustomIconButton(child: Icon(Icons.search_rounded), onPressed: ()=>{}),
               const SizedBox(
-                width: AppDimens.marginMedium,
+                width: AppDimens.marginSmall,
               ),
             ],
           ),

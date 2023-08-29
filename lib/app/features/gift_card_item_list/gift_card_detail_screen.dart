@@ -11,7 +11,6 @@ import '../../constants/resources/app_colors.dart';
 import '../../constants/resources/app_dimens.dart';
 import '../../widgets/buttons/custom_icon_button.dart';
 import '../../widgets/buttons/primary_button_widget.dart';
-import '../../widgets/list_item/user_review_list_item.dart';
 import '../../widgets/text_view_widget.dart';
 import '../../widgets/user_reviews_section_view.dart';
 import '../home/widgets/horizontal_gift_card_section_view.dart';
@@ -353,8 +352,8 @@ class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
                 children: [
                   TextViewWidget(
                     "About ${widget.item.name}",
+                    textSize: AppDimens.textRegular,
                     fontWeight: FontWeight.w600,
-                    textSize: AppDimens.textRegular2X,
                   ),
                   const SizedBox(
                     height: AppDimens.marginMedium,

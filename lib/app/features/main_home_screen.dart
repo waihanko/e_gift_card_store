@@ -59,9 +59,8 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       onTap: (index) => setState(() => currentSelectedIndex = index),
       items: [
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(AppImages.icHome),
-          activeIcon: SvgPicture.asset(AppImages.icHome),
-          label: '',
+          icon: SvgPicture.asset(AppAssets.kHomeIcon),
+          activeIcon: SvgPicture.asset(AppAssets.kHomeActiveIcon),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.notifications_none_outlined),
@@ -96,38 +95,28 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       }),
       items: [
         BottomNavigationBarItem(
+          label: '',
           icon: RoundedIconWidget(
-              icon: Icon(
-                Icons.home_outlined,
-                color: Colors.black,
-              ),
+              icon: SvgPicture.asset(AppAssets.kHomeIcon),
               backgroundColor: Colors.transparent,
               onClickIcon: () => {
                     setState(() => currentSelectedIndex = 0),
                   }),
           activeIcon: RoundedIconWidget(
-            icon: Icon(
-              Icons.home,
-              color: Colors.white,
-            ),
+            icon: SvgPicture.asset(AppAssets.kHomeActiveIcon),
             backgroundColor: AppColors.kRed,
           ),
-          label: '',
         ),
         BottomNavigationBarItem(
           icon: RoundedIconWidget(
-              icon: Icon(
-                Icons.notifications_none_outlined,
-                color: Colors.black,
-              ),
+              icon: SvgPicture.asset(AppAssets.kNotiIcon),
               backgroundColor: Colors.transparent,
               onClickIcon: () => {
                     setState(() => currentSelectedIndex = 1),
                   }),
           activeIcon: RoundedIconWidget(
-            icon: Icon(
-              Icons.notifications_rounded,
-              color: Colors.white,
+            icon: SvgPicture.asset(
+              AppAssets.kNotiActiveIcon,
             ),
             backgroundColor: AppColors.kRed,
           ),
@@ -135,18 +124,14 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
         ),
         BottomNavigationBarItem(
           icon: RoundedIconWidget(
-              icon: Icon(
-                Icons.ac_unit,
-                color: Colors.black,
-              ),
+              icon: SvgPicture.asset(AppAssets.kCategoIcon),
               backgroundColor: Colors.transparent,
               onClickIcon: () => {
-                    setState(() => currentSelectedIndex = 2),
-                  }),
+                setState(() => currentSelectedIndex = 2),
+              }),
           activeIcon: RoundedIconWidget(
-            icon: Icon(
-              Icons.ac_unit,
-              color: Colors.white,
+            icon: SvgPicture.asset(
+              AppAssets.kCategoActiveIcon,
             ),
             backgroundColor: AppColors.kRed,
           ),
@@ -154,38 +139,26 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
         ),
         BottomNavigationBarItem(
           icon: RoundedIconWidget(
-              icon: Icon(
-                Icons.shopping_cart_outlined,
-                color: Colors.black,
-              ),
+              icon: SvgPicture.asset(AppAssets.kShoppingCartIcon),
               backgroundColor: Colors.transparent,
               onClickIcon: () => {
                     setState(() => currentSelectedIndex = 3),
                   }),
           activeIcon: RoundedIconWidget(
-            icon: Icon(
-              Icons.shopping_cart_rounded,
-              color: Colors.white,
-            ),
+            icon: SvgPicture.asset(AppAssets.kShoppingCartActiveIcon),
             backgroundColor: AppColors.kRed,
           ),
           label: '',
         ),
         BottomNavigationBarItem(
           icon: RoundedIconWidget(
-              icon: Icon(
-                Icons.account_circle_outlined,
-                color: Colors.black,
-              ),
+              icon: SvgPicture.asset(AppAssets.kProfileIcon),
               backgroundColor: Colors.transparent,
               onClickIcon: () => {
                     setState(() => currentSelectedIndex = 4),
                   }),
           activeIcon: RoundedIconWidget(
-            icon: Icon(
-              Icons.account_circle_rounded,
-              color: Colors.white,
-            ),
+            icon: SvgPicture.asset(AppAssets.kProfileActiveIcon),
             backgroundColor: AppColors.kRed,
           ),
           label: '',

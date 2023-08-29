@@ -35,7 +35,6 @@ class CustomIconButton extends StatelessWidget {
           side: BorderSide(color: borderColor),
           borderRadius: BorderRadius.circular(borderRadius), // <-- Radius
         ),
-        padding: EdgeInsets.symmetric(vertical: AppDimens.marginCardMedium, horizontal: AppDimens.marginMedium2)// Adjust padding as needed
       ),
       child: child??const SizedBox(),
     );

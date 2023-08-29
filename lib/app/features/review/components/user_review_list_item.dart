@@ -2,14 +2,13 @@ import 'package:e_gift_card_store/app/constants/dummy/vos/review_item_vo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../../constants/resources/app_colors.dart';
-import '../../constants/resources/app_dimens.dart';
-import '../../constants/resources/app_images.dart';
-import '../text_view_widget.dart';
+import '../../../constants/resources/app_colors.dart';
+import '../../../constants/resources/app_dimens.dart';
+import '../../../constants/resources/app_images.dart';
+import '../../../widgets/text_view_widget.dart';
 
 class UserReviewListItem extends StatelessWidget {
   final ReviewItemVo item;
-
 
   const UserReviewListItem({
     super.key,

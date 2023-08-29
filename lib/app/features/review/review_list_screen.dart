@@ -1,13 +1,12 @@
-import 'package:e_gift_card_store/app/widgets/user_reviews_section_view.dart';
+import 'package:e_gift_card_store/app/widgets/rating_bar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
 import '../../constants/dummy/dummy.dart';
 import '../../constants/resources/app_colors.dart';
 import '../../constants/resources/app_dimens.dart';
-import '../../widgets/list_item/user_review_list_item.dart';
+import 'components/user_review_list_item.dart';
 import '../../widgets/primary_app_bar_widget.dart';
 import '../../widgets/text_view_widget.dart';
+import 'components/review_progress_bar.dart';
 
 class ReviewListScreen extends StatelessWidget {
   const ReviewListScreen({super.key});
@@ -15,113 +14,82 @@ class ReviewListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PrimaryAppBarWidget(title: "Reviews"),
+      appBar: const PrimaryAppBarWidget(title: "Reviews"),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: AppDimens.marginCardMedium2,),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: AppDimens.marginMedium,),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: AppDimens.marginMedium2 * 2),
+              child: Row(
                 children: [
-                  Column(
-                    children: [
-                      TextViewWidget(
-                        "4.5",
-                        textSize: AppDimens.textHeading1X,
-                        fontWeight: FontWeight.w900,
-                      ),
-                      RatingBar.builder(
-                        itemSize: AppDimens.marginMedium2,
-                        initialRating: 4.0,
-                        minRating: 1,
-                        direction: Axis.horizontal,
-                        allowHalfRating: true,
-                        itemCount: 5,
-                        itemPadding: const EdgeInsets.symmetric(horizontal: 0),
-                        itemBuilder: (context, _) => const Icon(
-                          Icons.star,
-                          color: AppColors.kRed,
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        TextViewWidget(
+                          "4.99",
+                          textSize: AppDimens.textHeading2X,
+                          fontWeight: FontWeight.w900,
                         ),
-                        onRatingUpdate: (rating) {
-                          print(rating);
-                        },
-                      ),
-                      Row(
-                        children: [
-                          TextViewWidget(
-                            "5123",
-                            fontWeight: FontWeight.w900,
-                            textSize: AppDimens.textSmall,
-                          ),
-                          TextViewWidget(
-                            "Reviews",
-                            textSize: AppDimens.textSmall,
-                            fontWeight: FontWeight.w500,
-                            textColor: AppColors.kTextColor,
-                          ),
-                        ],
-                      ),
-                    ],
+                        SizedBox(height: AppDimens.marginMedium,),
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                            child: RatingBarWidget(rate: 4, iconSize: AppDimens.marginCardMedium2)),
+                        SizedBox(height: AppDimens.marginMedium,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextViewWidget(
+                              "5123",
+                              fontWeight: FontWeight.w900,
+                              textSize: AppDimens.textSmall,
+                            ),
+                            TextViewWidget(
+                              "Reviews",
+                              textSize: AppDimens.textSmall,
+                              fontWeight: FontWeight.w500,
+                              textColor: AppColors.kTextColor,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                  Spacer(),
-                  Column(
-                    children: [
-                      TextViewWidget(
-                        "5210",
-                        textSize: AppDimens.textRegular,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      TextViewWidget(
-                        "Reviews",
-                        fontWeight: FontWeight.w500,
-                        textSize: AppDimens.textSmall,
-                        textColor: AppColors.kTextColor,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: AppDimens.marginSmall,
-                  ),
-                  Container(
-                    width: 0.5,
-                    color: AppColors.kTextColor,
-                    height: 30,
-                  ),
-                  SizedBox(
-                    width: AppDimens.marginSmall,
-                  ),
-                  Column(
-                    children: [
-                      TextViewWidget(
-                        "4.5",
-                        textSize: AppDimens.textRegular,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      TextViewWidget(
-                        "Reviews",
-                        fontWeight: FontWeight.w500,
-                        textSize: AppDimens.textSmall,
-                        textColor: AppColors.kTextColor,
-                      ),
-                    ],
+                  SizedBox(width: AppDimens.marginXLarge,),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ReviewProgressBar(number: "5", currentRateProgress: 0.5),
+                        SizedBox(height: AppDimens.marginExtraSmall,),
+                        ReviewProgressBar(number: "4", currentRateProgress: 0.2),
+                        SizedBox(height: AppDimens.marginExtraSmall,),
+                        ReviewProgressBar(number: "3", currentRateProgress: 0.9),
+                        SizedBox(height: AppDimens.marginExtraSmall,),
+                        ReviewProgressBar(number: "2", currentRateProgress: 0.5),
+                        SizedBox(height: AppDimens.marginExtraSmall,),
+                        ReviewProgressBar(number: "1", currentRateProgress: 1),
+                      ],
+                    ),
                   )
                 ],
               ),
-              const SizedBox(
-                height: AppDimens.marginCardMedium2,
-              ),
-              ListView.builder(
-                padding: EdgeInsets.zero,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (context, index) =>
-                    UserReviewListItem(item: reviewDummyList[index]),
-                itemCount: reviewDummyList.length,
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: AppDimens.marginXLarge,),
+            Container(height: 12, color: AppColors.kSecondary, ),
+            ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium2, vertical: AppDimens.marginXLarge,),
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (context, index) =>
+                  UserReviewListItem(item: reviewDummyList[index]),
+              itemCount: reviewDummyList.length,
+            ),
+          ],
         ),
       ),
     );
