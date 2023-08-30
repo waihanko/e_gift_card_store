@@ -5,7 +5,12 @@ import 'vos/review_item_vo.dart';
 
 List<String> orderStatus = ["Pending", "Sending", "Completed", "Refunded"];
 
-List<String> detailTabMenu = ["Description", "Instruction", "Reviews", "Related"];
+List<String> detailTabMenu = [
+  "Description",
+  "Instruction",
+  "Reviews",
+  "Related"
+];
 
 List<GiftCardCategoryVo> giftCardCategoDummy = [
   GiftCardCategoryVo("Mobile Game Cards", AppAssets.mobileGameCardIcon, "28"),
@@ -35,106 +40,108 @@ List<GiftCardCategoryVo> gameTopUpCategoDummy = [
 ];
 
 List<String> bannerDummyList = [
-  "assets/images/banner_dummy/banner_1.png",
-  "assets/images/banner_dummy/banner_2.png",
-  "assets/images/banner_dummy/banner_3.png"
+  "assets/images/banner_dummy/banner_1.webp",
+  "assets/images/banner_dummy/banner_2.webp",
+  "assets/images/banner_dummy/banner_3.webp"
 ];
 
 List<GiftCardItemVo> newsAndPromotionDummyList = [
   GiftCardItemVo(
     "Steam Summer Sale 2023 on SEAGM",
-    "assets/images/news_and_promotion_dummy/summer_sales.png",
+    "assets/images/news_and_promotion_dummy/promotion_summer_sales.webp",
   ),
   GiftCardItemVo(
     "Honkai: Star Rail – a new take on tactical JRPG!",
-    "assets/images/news_and_promotion_dummy/star_rails.png",
+    "assets/images/news_and_promotion_dummy/promotion_star_rails.webp",
   ),
   GiftCardItemVo(
     "PlayStation Summer Sale 2023",
-    "assets/images/news_and_promotion_dummy/play_station.png",
+    "assets/images/news_and_promotion_dummy/promotion_play_station.webp",
   ),
   GiftCardItemVo(
     r"What the Extra $20 Deluxe Upgrade Gets You in Star Wars Jedi: Survivor",
-    "assets/images/news_and_promotion_dummy/jed.png",
+    "assets/images/news_and_promotion_dummy/promotion_jed.webp",
   ),
   GiftCardItemVo(
     "Call of Duty Mobile Season 4 : VEILED UPRISING",
-    "assets/images/news_and_promotion_dummy/call_of_duty.png",
+    "assets/images/news_and_promotion_dummy/promotion_call_of_duty.webp",
   ),
 ];
 
 Map<String, List<GiftCardItemVo>> shoppingCartDummyList = {
   "Steam Summer Sale Card": [
     GiftCardItemVo(r"Steam Summer Sale Card $200",
-        "assets/images/news_and_promotion_dummy/summer_sales.png"),
+        "assets/images/news_and_promotion_dummy/promotion_summer_sales.webp"),
     GiftCardItemVo(r"Steam Summer Sale Card $100",
-        "assets/images/news_and_promotion_dummy/summer_sales.png"),
+        "assets/images/news_and_promotion_dummy/promotion_summer_sales.webp"),
   ],
   "PlayStation Summer Sale": [
     GiftCardItemVo(
       r"Honkai: Star Rail $10",
-      "assets/images/news_and_promotion_dummy/star_rails.png",
+      "assets/images/news_and_promotion_dummy/promotion_star_rails.webp",
     ),
     GiftCardItemVo(
       r"Honkai: Star Rail $50",
-      "assets/images/news_and_promotion_dummy/star_rails.png",
+      "assets/images/news_and_promotion_dummy/promotion_star_rails.webp",
     ),
     GiftCardItemVo(
       r"Honkai: Star Rail $5",
-      "assets/images/news_and_promotion_dummy/star_rails.png",
+      "assets/images/news_and_promotion_dummy/promotion_star_rails.webp",
     ),
   ],
   "ITUNES GIFT CARD (US)": [
     GiftCardItemVo("ITUNES GIFT CARD (US)",
-        "assets/images/gift_card_dummy/itune_gift_card.png"),
+        "assets/images/gift_card_dummy/gift_card_itune.webp"),
   ],
 };
 
 List<GiftCardItemVo> topUpCardDummyList = [
   GiftCardItemVo(
-      "MOBILE LEGEND", "assets/images/top_up_dummy/mobile_legend.png"),
+      "MOBILE LEGEND", "assets/images/top_up_dummy/top_up_mobile_legend.webp"),
   GiftCardItemVo(
-      "FORZA HORIZON 5", "assets/images/top_up_dummy/forza_horizon.png"),
-  GiftCardItemVo("EGGY PARTY", "assets/images/top_up_dummy/eggy_go.png"),
-  GiftCardItemVo("CS GO", "assets/images/top_up_dummy/cs_go.png"),
-  GiftCardItemVo("CALL OF DUTY", "assets/images/top_up_dummy/call_of_duty.png"),
+      "FORZA HORIZON 5", "assets/images/top_up_dummy/top_up_forza_horizon.webp"),
+  GiftCardItemVo("EGGY PARTY", "assets/images/top_up_dummy/top_up_eggy_go.webp"),
+  GiftCardItemVo("CS GO", "assets/images/top_up_dummy/top_up_cs_go.webp"),
+  GiftCardItemVo(
+      "CALL OF DUTY", "assets/images/top_up_dummy/top_up_call_of_duty.webp"),
 ];
 
 List<GiftCardItemVo> gameCardDummyList = [
   GiftCardItemVo("DIABLO 4 (PC) - STANDARD EDITION",
-      "assets/images/gift_card_dummy/diablo_4_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_diablo_4.webp"),
   GiftCardItemVo("Binance Gift Cards",
-      "assets/images/gift_card_dummy/binance_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_binance.webp"),
   GiftCardItemVo("PUBG MOBILE UC REDEEM CODE (GLOBAL)",
-      "assets/images/gift_card_dummy/pubg_uc_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_pubg_uc.webp"),
   GiftCardItemVo("VISA GIFT CARD (US)",
-      "assets/images/gift_card_dummy/visa_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_visa_gift_card.webp"),
   GiftCardItemVo("ITUNES GIFT CARD (US)",
-      "assets/images/gift_card_dummy/itune_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_itune.webp"),
   GiftCardItemVo("VISA GIFT CARD (CA)",
-      "assets/images/gift_card_dummy/my_prepaid_visa_ca.png"),
+      "assets/images/gift_card_dummy/gift_card_my_prepaid_visa.webp"),
   GiftCardItemVo("Mobile Game Cards",
-      "assets/images/gift_card_dummy/binance_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_binance.webp"),
   GiftCardItemVo("Mobile Game Cards",
-      "assets/images/gift_card_dummy/binance_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_binance.webp"),
   GiftCardItemVo("Mobile Game Cards",
-      "assets/images/gift_card_dummy/binance_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_binance.webp"),
   GiftCardItemVo("Mobile Game Cards",
-      "assets/images/gift_card_dummy/binance_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_binance.webp"),
   GiftCardItemVo("Mobile Game Cards",
-      "assets/images/gift_card_dummy/binance_gift_card.png"),
+      "assets/images/gift_card_dummy/gift_card_binance.webp"),
 ];
 
 List<GiftCardItemVo> specialDealDummyList = [
   GiftCardItemVo(
-      "BINANCE", "assets/images/gift_card_dummy/binance_gift_card.png"),
+      "BINANCE", "assets/images/gift_card_dummy/gift_card_binance.webp"),
   GiftCardItemVo(
-      "MOBILE LEGEND", "assets/images/top_up_dummy/mobile_legend.png"),
+      "MOBILE LEGEND", "assets/images/top_up_dummy/top_up_mobile_legend.webp"),
   GiftCardItemVo(
-      "FORZA HORIZON 5", "assets/images/top_up_dummy/forza_horizon.png"),
-  GiftCardItemVo("EGGY PARTY", "assets/images/top_up_dummy/eggy_go.png"),
-  GiftCardItemVo("CS GO", "assets/images/top_up_dummy/cs_go.png"),
-  GiftCardItemVo("CALL OF DUTY", "assets/images/top_up_dummy/call_of_duty.png"),
+      "FORZA HORIZON 5", "assets/images/top_up_dummy/top_up_forza_horizon.webp"),
+  GiftCardItemVo("EGGY PARTY", "assets/images/top_up_dummy/top_up_eggy_go.webp"),
+  GiftCardItemVo("CS GO", "assets/images/top_up_dummy/top_up_cs_go.webp"),
+  GiftCardItemVo(
+      "CALL OF DUTY", "assets/images/top_up_dummy/top_up_call_of_duty.webp"),
 ];
 
 List<ReviewItemVo> reviewDummyList = [

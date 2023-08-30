@@ -4,7 +4,7 @@ import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/resources/app_colors.dart';
-import '../../widgets/list_item/notification_category_list_item.dart';
+import 'components/notification_category_list_item.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});

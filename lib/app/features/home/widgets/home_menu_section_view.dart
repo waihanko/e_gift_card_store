@@ -1,5 +1,4 @@
 import 'package:e_gift_card_store/app/constants/resources/app_images.dart';
-import 'package:e_gift_card_store/app/features/gift_topup_item_list/gift_top_up_list_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/resources/app_colors.dart';
