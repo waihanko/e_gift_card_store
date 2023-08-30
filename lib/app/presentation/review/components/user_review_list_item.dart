@@ -29,7 +29,7 @@ class UserReviewListItem extends StatelessWidget {
                 color: AppColors.kSecondary, shape: BoxShape.circle),
             child: CircleAvatar(
               radius: 30,
-              backgroundImage: AssetImage(AppAssets.kProfilePic),
+              backgroundImage: AssetImage(Images.kProfilePic),
             ),
           ),
           const SizedBox(

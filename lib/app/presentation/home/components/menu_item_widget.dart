@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../constants/resources/app_dimens.dart';
@@ -24,29 +25,28 @@ class MenuItemWidget extends StatelessWidget {
     return Expanded(
       flex: 1,
       child: Padding(
-        padding:
-            const EdgeInsets.symmetric(horizontal: AppDimens.marginExtraSmall),
+        padding: EdgeInsets.symmetric(horizontal: AppDimens.marginExtraSmall.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: 54,
-              height: 54,
+              width: 54.w,
+              height: 54.h,
               child: RoundedIconWidget(
                 backgroundColor: backgroundColor,
                 icon: SvgPicture.asset(
                   iconName,
-                  height: 22,
+                  height: 22.r,
                 ),
                 onClickIcon: () => onTapMenu?.call(),
               ),
             ),
             SizedBox(
-              height: AppDimens.marginMedium,
+              height: 8.h,
             ),
             TextViewWidget(
               text,
-              textSize: AppDimens.textSmall,
+              textSize: AppDimens.textSmall.sp,
               fontWeight: FontWeight.w700,
               textAlign: TextAlign.center,
               maxLines: 2,

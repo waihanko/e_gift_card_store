@@ -13,7 +13,7 @@ import '../../widgets/buttons/custom_icon_button.dart';
 import '../../widgets/buttons/primary_button_widget.dart';
 import '../../widgets/text_view_widget.dart';
 import '../../widgets/user_reviews_section_view.dart';
-import '../home/widgets/horizontal_gift_card_section_view.dart';
+import '../home/components/horizontal_gift_card_section_view.dart';
 
 class GiftCardDetailScreen2 extends StatefulWidget {
   const GiftCardDetailScreen2({
@@ -83,7 +83,7 @@ class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
               decoration: BoxDecoration(
                 image: const DecorationImage(
                     image: AssetImage(
-                      AppAssets.bgItemDetail,
+                      Images.bgItemDetail,
                     ),
                     fit: BoxFit.cover),
                 gradient: LinearGradient(
@@ -141,7 +141,7 @@ class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
                                   borderRadius: BorderRadius.circular(12),
                                   image: const DecorationImage(
                                     image: AssetImage(
-                                      AppAssets.myanmarFlag,
+                                      Images.myanmarFlag,
                                     ),
                                     fit: BoxFit.cover,
                                   ),

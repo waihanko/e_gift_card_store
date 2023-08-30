@@ -1,9 +1,5 @@
-import 'dart:ui';
-
 import 'package:e_gift_card_store/app/core/utils/app_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:palette_generator/palette_generator.dart';
-
 
 class GiftCardItemVo {
   final String name;
@@ -22,6 +18,6 @@ class GiftCardItemVo {
   }
 
   GiftCardItemVo.normal(this.name, this.imageUrl) {
-    GiftCardItemVo(name,imageUrl);
+    GiftCardItemVo(name, imageUrl);
   }
 }

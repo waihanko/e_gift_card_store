@@ -1,4 +1,4 @@
-abstract class AppAssets {
+abstract class Images {
   //#region NavigationIcon
   static const kHomeIcon = "assets/icons/nav_home.svg";
   static const kHomeActiveIcon = "assets/icons/nav_home_active.svg";

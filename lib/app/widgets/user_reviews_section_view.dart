@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../constants/dummy/dummy.dart';
 import '../constants/resources/app_colors.dart';
 import '../constants/resources/app_dimens.dart';
-import '../features/review/components/user_review_list_item.dart';
+import '../presentation/review/components/user_review_list_item.dart';
 
 class UserReviewSectionView extends StatelessWidget {
   const UserReviewSectionView({

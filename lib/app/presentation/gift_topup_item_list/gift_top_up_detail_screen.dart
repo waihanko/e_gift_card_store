@@ -9,7 +9,7 @@ import '../../constants/dummy/vos/gift_card_item_vo.dart';
 import '../../constants/resources/app_colors.dart';
 import '../../constants/resources/app_dimens.dart';
 import '../../widgets/text_view_widget.dart';
-import '../home/widgets/horizontal_gift_topup_section_view.dart';
+import '../home/components/horizontal_gift_topup_section_view.dart';
 
 class GiftTopUpDetailScreen extends StatefulWidget {
   const GiftTopUpDetailScreen({
@@ -44,7 +44,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
                 decoration: BoxDecoration(
                   image: const DecorationImage(
                       image: AssetImage(
-                        AppAssets.bgItemDetail,
+                        Images.bgItemDetail,
                       ),
                       fit: BoxFit.cover),
                   gradient: LinearGradient(
@@ -102,7 +102,7 @@ class _GiftTopUpDetailScreenState extends State<GiftTopUpDetailScreen> {
                                     borderRadius: BorderRadius.circular(12),
                                     image: DecorationImage(
                                       image: AssetImage(
-                                        AppAssets.myanmarFlag,
+                                        Images.myanmarFlag,
                                       ),
                                       fit: BoxFit.cover,
                                     ),

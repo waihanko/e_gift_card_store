@@ -1,16 +1,17 @@
 import 'package:e_gift_card_store/app/constants/resources/app_colors.dart';
-import 'package:e_gift_card_store/app/features/home/widgets/horizontal_gift_card_section_view.dart';
-import 'package:e_gift_card_store/app/features/home/widgets/horizontal_gift_topup_section_view.dart';
-import 'package:e_gift_card_store/app/features/home/widgets/news_and_promotions_section_view.dart';
+import 'package:e_gift_card_store/app/presentation/home/components/horizontal_gift_card_section_view.dart';
+import 'package:e_gift_card_store/app/presentation/home/components/horizontal_gift_topup_section_view.dart';
+import 'package:e_gift_card_store/app/presentation/home/components/news_and_promotions_section_view.dart';
 import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/resources/app_dimens.dart';
 import '../../constants/routing/screen_route.dart';
 import '../../widgets/section_view_banner.dart';
 import '../../widgets/special_deal_section_view.dart';
-import 'widgets/home_menu_section_view.dart';
-import 'widgets/platorm_item_section_view.dart';
+import 'components/home_menu_section_view.dart';
+import 'components/platorm_item_section_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,17 +49,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Container(
                         margin: const EdgeInsets.symmetric(
                             horizontal: AppDimens.marginCardMedium2),
-                        height: 48,
+                        height: 48.h,
                         child: OutlinedButton(
-                          child: const Stack(
+                          child:  Stack(
                             children: [
                               Positioned(
                                 top: 0,
                                 bottom: 0,
                                 left: AppDimens.marginCardMedium,
-                                child: Icon(Icons.search_rounded),
+                                child: Icon(Icons.search_rounded, size: 28.r,),
                               ),
-                              Center(child: TextViewWidget("Search"))
+                              const Center(child: TextViewWidget("Search"))
                             ],
                           ),
                           onPressed: ()=> ScreenRoute.goToSearchScreen(context),
@@ -105,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 PlatformItemSectionView(),
                 SizedBox(
-                  height: 140,
+                  height: 140.h,
                 )
               ],
             ),

@@ -1,5 +1,6 @@
 import 'package:e_gift_card_store/app/constants/resources/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/resources/app_dimens.dart';
@@ -19,7 +20,7 @@ class TextViewWidget extends StatelessWidget {
   const TextViewWidget(
     this.text, {
     Key? key,
-    this.textSize = AppDimens.textRegular,
+    this.textSize,
     this.fontWeight = FontWeight.normal,
     this.textColor = AppColors.kDark,
     this.textAlign = TextAlign.start,
@@ -36,7 +37,7 @@ class TextViewWidget extends StatelessWidget {
       text,
       textAlign: textAlign,
       style: GoogleFonts.manrope(
-        fontSize: textSize,
+        fontSize: textSize??AppDimens.textRegular.sp,
         color: textColor,
         fontWeight: fontWeight,
         letterSpacing: letterSpacing,
