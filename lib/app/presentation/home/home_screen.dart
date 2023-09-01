@@ -1,4 +1,3 @@
-import 'package:e_gift_card_store/app/constants/resources/app_colors.dart';
 import 'package:e_gift_card_store/app/presentation/home/components/horizontal_gift_card_section_view.dart';
 import 'package:e_gift_card_store/app/presentation/home/components/horizontal_gift_topup_section_view.dart';
 import 'package:e_gift_card_store/app/presentation/home/components/news_and_promotions_section_view.dart';

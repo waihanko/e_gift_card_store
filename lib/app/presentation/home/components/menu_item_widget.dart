@@ -46,7 +46,7 @@ class MenuItemWidget extends StatelessWidget {
             ),
             TextViewWidget(
               text,
-              textSize: AppDimens.textSmall.sp,
+              textSize: AppDimens.textSmall,
               fontWeight: FontWeight.w700,
               textAlign: TextAlign.center,
               maxLines: 2,

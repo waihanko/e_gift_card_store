@@ -37,7 +37,7 @@ class TextViewWidget extends StatelessWidget {
       text,
       textAlign: textAlign,
       style: GoogleFonts.manrope(
-        fontSize: textSize??AppDimens.textRegular.sp,
+        fontSize: (textSize??AppDimens.textRegular).sp,
         color: textColor,
         fontWeight: fontWeight,
         letterSpacing: letterSpacing,

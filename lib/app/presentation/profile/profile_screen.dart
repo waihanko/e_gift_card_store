@@ -4,9 +4,11 @@ import 'package:e_gift_card_store/app/constants/resources/app_dimens.dart';
 import 'package:e_gift_card_store/app/widgets/rounded_icon_widget.dart';
 import 'package:e_gift_card_store/app/widgets/text_view_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/dummy/dummy.dart';
 import '../../constants/resources/app_colors.dart';
+import 'components/profile_menu_list_item.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -25,7 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         slivers: [
           SliverAppBar(
             stretch: true,
-            toolbarHeight: MediaQuery.sizeOf(context).height * 0.2,
+            toolbarHeight: 0.23.sh,
             flexibleSpace: FlexibleSpaceBar(
               background: Stack(
                 children: [
@@ -35,8 +37,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: AppDimens.marginLarge),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: AppDimens.marginLarge.w),
                         child: Row(
                           children: [
                             Expanded(
@@ -50,9 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     fontWeight: FontWeight.w800,
                                     textSize: AppDimens.textRegular2X,
                                   ),
-                                  SizedBox(
-                                    height: AppDimens.marginMedium,
-                                  ),
+                                  AppDimens.marginMedium.verticalSpace,
                                   TextViewWidget(
                                     "WAIHANKO.DEV@GMAIL.COM",
                                     textColor: AppColors.kDark,
@@ -66,13 +66,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   RoundedIconWidget(
-                                      icon: Icon(Icons.person),
+                                      icon: Icon(Icons.person,size:  24.r),
                                       contentPadding:
-                                          AppDimens.marginCardMedium),
-                                  SizedBox(
-                                    width: AppDimens.marginMedium,
-                                  ),
-                                  Icon(Icons.navigate_next_rounded)
+                                          AppDimens.marginCardMedium.r),
+                                  AppDimens.marginMedium.horizontalSpace,
+                                  Icon(Icons.navigate_next_rounded,size:  24.r)
                                 ],
                               ),
                             )
@@ -88,11 +86,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     right: 0,
                     child: Container(
                       height: 14,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: AppColors.kPrimary,
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(AppDimens.marginXLarge),
-                          topRight: Radius.circular(AppDimens.marginXLarge),
+                          topLeft: Radius.circular(AppDimens.marginXLarge.r),
+                          topRight: Radius.circular(AppDimens.marginXLarge.r),
                         ),
                       ),
                     ),
@@ -108,39 +106,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 color: AppColors.kPrimary,
                 child: Column(
                   children: [
+                    AppDimens.marginSmall.verticalSpace,
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: AppDimens.marginCardMedium2,
-                          vertical: AppDimens.marginSmall),
+                      padding:  EdgeInsets.symmetric(
+                        horizontal: AppDimens.marginCardMedium2.w,
+                      ),
                       child: Row(
                         children: [
                           Icon(
                             Icons.list_alt_rounded,
-                            size: 18,
+                            size: 18.r,
                           ),
-                          SizedBox(
-                            width: AppDimens.marginCardMedium,
-                          ),
-                          TextViewWidget(
+                          AppDimens.marginCardMedium.horizontalSpace,
+                          const TextViewWidget(
                             "My Orders",
                             fontWeight: FontWeight.w600,
                             textSize: AppDimens.textMedium,
                           ),
-                          Spacer(),
-                          Icon(Icons.navigate_next_rounded)
+                          const Spacer(),
+                          Icon(Icons.navigate_next_rounded, size: 18.r,)
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: AppDimens.marginCardMedium,
-                    ),
+                    AppDimens.marginCardMedium.verticalSpace,
                     Container(
                       height: 0.1,
                       color: AppColors.kDark,
                     ),
-                    SizedBox(
-                      height: AppDimens.marginCardMedium,
-                    ),
+                    AppDimens.marginCardMedium.verticalSpace,
                     Row(
                       children: orderStatus
                           .map(
@@ -167,24 +160,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           )
                           .toList(),
                     ),
-                    const SizedBox(
-                      height: AppDimens.marginCardMedium2,
-                    ),
+                    AppDimens.marginCardMedium2.verticalSpace,
                   ],
                 ),
               ),
-              const SizedBox(
-                height: AppDimens.marginCardMedium,
-              ),
+              AppDimens.marginMedium.verticalSpace,
               Container(
                 color: AppColors.kPrimary,
-                padding:
-                    const EdgeInsets.symmetric(vertical: AppDimens.marginSmall),
-                child: Column(
+                padding: EdgeInsets.symmetric(vertical: AppDimens.marginSmall.h),
+                child: const Column(
                   children: [
                     ProfileMenuListItem(
-                        iconName: Icons.account_balance_rounded,
-                        menuName: "My Account"),
+                      iconName: Icons.account_balance_rounded,
+                      menuName: "My Account",
+                    ),
                     ProfileMenuListItem(
                         iconName: Icons.stars_rounded, menuName: "My Stars"),
                     ProfileMenuListItem(
@@ -198,9 +187,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: AppDimens.marginCardMedium,
-              ),
+              AppDimens.marginMedium.verticalSpace,
               Container(
                 color: AppColors.kPrimary,
                 padding:
@@ -215,9 +202,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: AppDimens.marginCardMedium,
-              ),
+              AppDimens.marginMedium.verticalSpace,
               Container(
                 color: AppColors.kPrimary,
                 padding:
@@ -238,40 +223,3 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 }
 
-class ProfileMenuListItem extends StatelessWidget {
-  final IconData iconName;
-  final String menuName;
-
-  const ProfileMenuListItem({
-    super.key,
-    required this.iconName,
-    required this.menuName,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: AppDimens.marginCardMedium2,
-          vertical: AppDimens.marginCardMedium2),
-      child: Row(
-        children: [
-          Icon(
-            iconName,
-            size: 18,
-          ),
-          SizedBox(
-            width: AppDimens.marginCardMedium,
-          ),
-          TextViewWidget(
-            menuName,
-            fontWeight: FontWeight.w600,
-            textSize: AppDimens.textMedium,
-          ),
-          Spacer(),
-          Icon(Icons.navigate_next_rounded)
-        ],
-      ),
-    );
-  }
-}

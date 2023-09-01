@@ -48,12 +48,12 @@ class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
         decoration: BoxDecoration(gradient: Gradients.bottomBarBg),
         child: Row(
           children: [
-             CustomIconButton(
-               bgColor: AppColors.kPrimary,
+            CustomIconButton(
+              bgColor: AppColors.kPrimary,
               borderColor: AppColors.kLightRed,
               foregroundColor: AppColors.kDark,
               child: const Icon(Icons.shopping_cart_outlined),
-               onPressed: ()=>{},
+              onPressed: () => {},
             ),
             const SizedBox(
               width: AppDimens.marginCardMedium2,
@@ -246,12 +246,14 @@ class _GiftCardDetailScreen2State extends State<GiftCardDetailScreen2> {
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: AppDimens.marginMedium,
-                              vertical: AppDimens.marginExtraSmall),
+                            horizontal: AppDimens.marginMedium,
+                            vertical: AppDimens.marginExtraSmall,
+                          ),
                           decoration: BoxDecoration(
-                              color: AppColors.kSecondary,
-                              borderRadius: BorderRadius.circular(
-                                  AppDimens.marginMedium2)),
+                            color: AppColors.kSecondary,
+                            borderRadius:
+                                BorderRadius.circular(AppDimens.marginMedium2),
+                          ),
                           child: const TextViewWidget(
                             "x 1",
                             fontWeight: FontWeight.w500,
@@ -531,7 +533,8 @@ void _settingModalBottomSheet(context, GiftCardItemVo item) {
               itemCount: 12,
               itemBuilder: (_, index) {
                 return Container(
-                  margin: const EdgeInsets.only(bottom: AppDimens.marginCardMedium),
+                  margin:
+                      const EdgeInsets.only(bottom: AppDimens.marginCardMedium),
                   padding: const EdgeInsets.all(AppDimens.marginCardMedium),
                   decoration: BoxDecoration(
                       border: Border.all(color: AppColors.kSecondary),
@@ -583,8 +586,8 @@ void _settingModalBottomSheet(context, GiftCardItemVo item) {
             ),
           ),
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium2),
+            padding: const EdgeInsets.symmetric(
+                horizontal: AppDimens.marginCardMedium2),
             child: Row(
               children: [
                 const TextViewWidget(
@@ -593,8 +596,8 @@ void _settingModalBottomSheet(context, GiftCardItemVo item) {
                 ),
                 const Spacer(),
                 Container(
-                  margin:
-                      const EdgeInsets.symmetric(vertical: AppDimens.marginMedium),
+                  margin: const EdgeInsets.symmetric(
+                      vertical: AppDimens.marginMedium),
                   decoration: BoxDecoration(
                       color: AppColors.kSecondary,
                       borderRadius:
@@ -618,8 +621,8 @@ void _settingModalBottomSheet(context, GiftCardItemVo item) {
             ),
           ),
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: AppDimens.marginCardMedium2),
+            padding: const EdgeInsets.symmetric(
+                horizontal: AppDimens.marginCardMedium2),
             width: double.infinity,
             child: PrimaryButtonWidget(
               text: "CONFIRM",

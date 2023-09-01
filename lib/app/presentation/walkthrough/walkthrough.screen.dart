@@ -10,7 +10,6 @@ import '../../constants/resources/app_colors.dart';
 import '../../constants/typography/app_typography.dart';
 import '../../infrastructure/routes.dart';
 import '../../theme.dart';
-import '../../widgets/text_view_widget.dart';
 import 'controllers/walkthrough.controller.dart';
 
 class WalkthroughScreen extends StatelessWidget {
